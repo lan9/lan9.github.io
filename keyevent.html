@@ -1,18 +1,17 @@
 <html>
 <head>
-    <div id="console-log" style="color:green"></div>
     <div id="test-target" contenteditable="true" style="border: 1px black solid">
         <div style="white-space:pre-wrap"><span>some content</span></div>
         <div style="white-space:pre-wrap"><span id="newline"><br data-text="true"></span></div>
     </div>
+    <div id="console-log" style="color:green"></div>
     <script type="text/javascript">
       var textarea = document.getElementById('test-target');
       var consoleLog = document.getElementById('console-log');
-      var newline = document.getElementById(('newline'));
 
       function logMessage(message) {
-        let p = document.createElement('p');
-        p.appendChild(document.createTextNode(message));
+        let p = document.createElement('div');
+        consoleLog.appendChild(document.createTextNode(message));
         consoleLog.appendChild(p);
       }
 
