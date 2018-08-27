@@ -1,39 +1,39 @@
 <html>
-<head>
-    <div id="test-target" contenteditable="true" style="border: 1px black solid">
-        <div style="white-space:pre-wrap"><span>some content</span></div>
-        <div style="white-space:pre-wrap"><span id="newline"><br data-text="true"></span></div>
-    </div>
-    <div id="console-log" style="color:green"></div>
-    <script type="text/javascript">
-      var textarea = document.getElementById('test-target');
-      var consoleLog = document.getElementById('console-log');
+<body>
+<div id="test-target" contenteditable="true" style="border: 1px black solid">
+    <div style="white-space:pre-wrap"><span>some content</span></div>
+    <div style="white-space:pre-wrap"><span id="newline"><br data-text="true"></span></div>
+</div>
+<div id="console-log" style="color:green"></div>
+<script type="text/javascript">
+  var textarea = document.getElementById('test-target');
+  var consoleLog = document.getElementById('console-log');
 
-      function logMessage(message) {
-        let p = document.createElement('div');
-        consoleLog.appendChild(document.createTextNode(message));
-        consoleLog.appendChild(p);
-      }
+  function logMessage(message) {
+    let p = document.createElement('div');
+    consoleLog.appendChild(document.createTextNode(message));
+    consoleLog.appendChild(p);
+  }
 
-      textarea.addEventListener('keydown', (e) => {
-        if (!e.repeat)
-          logMessage(`first keydown event. key property value is "${e.key}"`);
-        else
-          logMessage(`keydown event repeats. key property value is "${e.key}"`);
-      });
+  textarea.addEventListener('keydown', (e) => {
+    if (!e.repeat)
+      logMessage(`first keydown event. key property value is "${e.key}"`);
+    else
+      logMessage(`keydown event repeats. key property value is "${e.key}"`);
+  });
 
-      textarea.addEventListener('beforeinput', (e) => {
-        logMessage(`beforeinput event. you are about to input "${e.data}"`);
-      });
+  textarea.addEventListener('beforeinput', (e) => {
+    logMessage(`beforeinput event. you are about to input "${e.data}"`);
+  });
 
-      textarea.addEventListener('input', (e) => {
-        logMessage(`input event. you have just input "${e.data}"`);
-      });
+  textarea.addEventListener('input', (e) => {
+    logMessage(`input event. you have just input "${e.data}"`);
+  });
 
-      textarea.addEventListener('keyup', (e) => {
-        logMessage(`keyup event. key property value is "${e.key}"`);
-      });
+  textarea.addEventListener('keyup', (e) => {
+    logMessage(`keyup event. key property value is "${e.key}"`);
+  });
 
-    </script>
-    </body>
+</script>
+</body>
 </html>
