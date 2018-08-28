@@ -11324,18 +11324,16 @@ function isNewline(node) {
 var NEWLINE_A = React.createElement(
   'span',
   { key: 'A', 'data-text': 'true' },
-  ' ',
-  '\n',
-  ' '
-);
+  '\n'
+) // eslint-disable-line
+;
 
 var NEWLINE_B = React.createElement(
   'span',
   { key: 'B', 'data-text': 'true' },
-  ' ',
-  '\n',
-  ' '
-);
+  '\n'
+) // eslint-disable-line
+;
 
 /**
  * The lowest-level component in a `DraftEditor`, the text node component
