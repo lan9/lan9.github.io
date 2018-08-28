@@ -11312,6 +11312,7 @@ function isNewline(node) {
 
 /**
  * Placeholder elements for empty text content.
+ * Eslint is disabled to prevent whitespace being inserted
  *
  * What is this `data-text` attribute, anyway? It turns out that we need to
  * put an attribute on the lowest-level text node in order to preserve correct
@@ -11325,15 +11326,13 @@ var NEWLINE_A = React.createElement(
   'span',
   { key: 'A', 'data-text': 'true' },
   '\n'
-) // eslint-disable-line
-;
+);
 
 var NEWLINE_B = React.createElement(
   'span',
   { key: 'B', 'data-text': 'true' },
   '\n'
-) // eslint-disable-line
-;
+);
 
 /**
  * The lowest-level component in a `DraftEditor`, the text node component
