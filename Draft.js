@@ -1,5 +1,5 @@
 /**
- * Draft v0.10.5-twitter-forks.9
+ * Draft v0.10.5
  *
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -80,7 +80,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 70);
+/******/ 	return __webpack_require__(__webpack_require__.s = 71);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -173,9 +173,9 @@ var _extends = _assign || function (target) { for (var i = 1; i < arguments.leng
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var BlockTree = __webpack_require__(83);
+var BlockTree = __webpack_require__(84);
 var ContentState = __webpack_require__(30);
-var EditorBidiService = __webpack_require__(84);
+var EditorBidiService = __webpack_require__(85);
 var SelectionState = __webpack_require__(21);
 
 var Immutable = __webpack_require__(0);
@@ -953,20 +953,20 @@ module.exports = CharacterMetadata;
 
 
 var CharacterMetadata = __webpack_require__(4);
-var ContentStateInlineStyle = __webpack_require__(72);
+var ContentStateInlineStyle = __webpack_require__(73);
 var Immutable = __webpack_require__(0);
 
-var applyEntityToContentState = __webpack_require__(73);
-var getCharacterRemovalRange = __webpack_require__(75);
+var applyEntityToContentState = __webpack_require__(74);
+var getCharacterRemovalRange = __webpack_require__(76);
 var getContentStateFragment = __webpack_require__(24);
 var gkx = __webpack_require__(7);
-var insertFragmentIntoContentState = __webpack_require__(78);
-var insertTextIntoContentState = __webpack_require__(79);
+var insertFragmentIntoContentState = __webpack_require__(79);
+var insertTextIntoContentState = __webpack_require__(80);
 var invariant = __webpack_require__(1);
-var modifyBlockForContentState = __webpack_require__(80);
+var modifyBlockForContentState = __webpack_require__(81);
 var removeEntitiesAtEdges = __webpack_require__(42);
-var removeRangeFromContentState = __webpack_require__(81);
-var splitBlockInContentState = __webpack_require__(82);
+var removeRangeFromContentState = __webpack_require__(82);
+var splitBlockInContentState = __webpack_require__(83);
 
 var OrderedSet = Immutable.OrderedSet;
 
@@ -1363,11 +1363,11 @@ module.exports = generateRandomKey;
 
 
 
-var UserAgentData = __webpack_require__(96);
-var VersionRange = __webpack_require__(99);
+var UserAgentData = __webpack_require__(97);
+var VersionRange = __webpack_require__(100);
 
-var mapObject = __webpack_require__(100);
-var memoizeStringOnly = __webpack_require__(101);
+var mapObject = __webpack_require__(101);
+var memoizeStringOnly = __webpack_require__(102);
 
 /**
  * Checks to see whether `name` and `version` satisfy `query`.
@@ -2913,7 +2913,7 @@ module.exports = DefaultDraftBlockRenderMap;
  * @typechecks
  */
 
-var getStyleProperty = __webpack_require__(105);
+var getStyleProperty = __webpack_require__(106);
 
 /**
  * @param {DOMNode} element [description]
@@ -2981,8 +2981,8 @@ module.exports = Style;
 
 
 
-var getDocumentScrollElement = __webpack_require__(109);
-var getUnboundedScrollPosition = __webpack_require__(110);
+var getDocumentScrollElement = __webpack_require__(110);
+var getUnboundedScrollPosition = __webpack_require__(111);
 
 /**
  * Gets the scroll position of the supplied element or window.
@@ -3522,7 +3522,7 @@ module.exports = getEntityKeyForSelection;
  * 
  */
 
-var isTextNode = __webpack_require__(103);
+var isTextNode = __webpack_require__(104);
 
 /*eslint-disable no-bitwise */
 
@@ -3657,7 +3657,7 @@ module.exports = Scroll;
 
 
 
-var getSelectionOffsetKeyForNode = __webpack_require__(55);
+var getSelectionOffsetKeyForNode = __webpack_require__(56);
 
 /**
  * Get the key from the node's nearest offset-aware ancestor.
@@ -3739,7 +3739,7 @@ module.exports = KeyBindingUtil;
 
 
 
-var warning = __webpack_require__(61);
+var warning = __webpack_require__(62);
 
 /**
  * Given a collapsed selection, move the focus `maxDistance` backward within
@@ -4364,12 +4364,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DraftEditorTextNode = __webpack_require__(95);
+var DraftEditorTextNode = __webpack_require__(96);
 var React = __webpack_require__(9);
 var ReactDOM = __webpack_require__(17);
 
 var invariant = __webpack_require__(1);
-var setDraftEditorSelection = __webpack_require__(102);
+var setDraftEditorSelection = __webpack_require__(103);
 
 /**
  * All leaf nodes in the editor are spans with single text nodes. Leaf
@@ -4420,7 +4420,9 @@ var DraftEditorLeaf = function (_React$Component) {
 
     if (child.nodeType === Node.TEXT_NODE) {
       targetNode = child;
-      // $FlowFixMe child may also be an Element, not just Node
+      /* $FlowFixMe(>=0.79.1 site=www) This comment suppresses an error found
+      * when Flow v0.79 was deployed. To see the error delete this comment and
+      * run Flow. */
     } else if (child.tagName === 'BR') {
       targetNode = node;
     } else {
@@ -4503,7 +4505,7 @@ var DraftEditorLeaf = function (_React$Component) {
         style: styleObj },
       React.createElement(
         DraftEditorTextNode,
-        { style: this.props.style },
+        null,
         text
       )
     );
@@ -4532,6 +4534,28 @@ module.exports = DraftEditorLeaf;
 
 
 module.exports = {
+  initODS: function initODS() {},
+  handleExtensionCausedError: function handleExtensionCausedError() {}
+};
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ */
+
+
+
+module.exports = {
   logBlockedSelectionEvent: function logBlockedSelectionEvent() {
     return null;
   },
@@ -4541,7 +4565,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4583,7 +4607,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4598,7 +4622,7 @@ module.exports = getActiveElement;
  * @typechecks
  */
 
-var getElementRect = __webpack_require__(108);
+var getElementRect = __webpack_require__(109);
 
 /**
  * Gets an element's position in pixels relative to the viewport. The returned
@@ -4620,7 +4644,7 @@ function getElementPosition(element) {
 module.exports = getElementPosition;
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4683,7 +4707,7 @@ getViewportDimensions.withoutScrollbars = function () {
 module.exports = getViewportDimensions;
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4721,9 +4745,9 @@ var UnicodeBidi = __webpack_require__(32);
 var UnicodeBidiDirection = __webpack_require__(26);
 
 var cx = __webpack_require__(14);
-var getElementPosition = __webpack_require__(51);
+var getElementPosition = __webpack_require__(52);
 var getScrollPosition = __webpack_require__(29);
-var getViewportDimensions = __webpack_require__(52);
+var getViewportDimensions = __webpack_require__(53);
 var invariant = __webpack_require__(1);
 var nullthrows = __webpack_require__(8);
 
@@ -4903,7 +4927,7 @@ var DraftEditorBlock = function (_React$Component) {
 module.exports = DraftEditorBlock;
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4920,9 +4944,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * @typechecks
  */
 
-var PhotosMimeType = __webpack_require__(114);
+var PhotosMimeType = __webpack_require__(115);
 
-var createArrayFromMixed = __webpack_require__(115);
+var createArrayFromMixed = __webpack_require__(116);
 var emptyFunction = __webpack_require__(25);
 
 var CR_LF_REGEX = new RegExp('\r\n', 'g');
@@ -5128,7 +5152,7 @@ var DataTransfer = function () {
 module.exports = DataTransfer;
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5170,7 +5194,7 @@ function getSelectionOffsetKeyForNode(node) {
 module.exports = getSelectionOffsetKeyForNode;
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5256,7 +5280,7 @@ module.exports = getTextContentFromFiles;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5337,7 +5361,7 @@ function getUpdatedSelectionState(editorState, anchorKey, anchorOffset, focusKey
 module.exports = getUpdatedSelectionState;
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5370,7 +5394,7 @@ function getFragmentFromSelection(editorState) {
 module.exports = getFragmentFromSelection;
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5438,7 +5462,7 @@ var getRangeClientRects = isChrome ? getRangeClientRectsChrome : function (range
 module.exports = getRangeClientRects;
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5457,8 +5481,8 @@ module.exports = getRangeClientRects;
 
 
 var findAncestorOffsetKey = __webpack_require__(37);
-var getSelectionOffsetKeyForNode = __webpack_require__(55);
-var getUpdatedSelectionState = __webpack_require__(57);
+var getSelectionOffsetKeyForNode = __webpack_require__(56);
+var getUpdatedSelectionState = __webpack_require__(58);
 var invariant = __webpack_require__(1);
 var nullthrows = __webpack_require__(8);
 
@@ -5626,7 +5650,7 @@ function getTextContentLength(node) {
 module.exports = getDraftEditorSelectionWithNodes;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5694,7 +5718,7 @@ if (true) {
 module.exports = warning;
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5712,7 +5736,7 @@ module.exports = warning;
 
 
 
-var TokenizeUtil = __webpack_require__(134);
+var TokenizeUtil = __webpack_require__(135);
 
 var punctuation = TokenizeUtil.getPunctuation();
 
@@ -5750,7 +5774,7 @@ var DraftRemovableWord = {
 module.exports = DraftRemovableWord;
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5768,7 +5792,7 @@ module.exports = DraftRemovableWord;
 
 
 
-var warning = __webpack_require__(61);
+var warning = __webpack_require__(62);
 
 /**
  * Given a collapsed selection, move the focus `maxDistance` forward within
@@ -5804,7 +5828,7 @@ function moveSelectionForward(editorState, maxDistance) {
 module.exports = moveSelectionForward;
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5839,7 +5863,7 @@ var Immutable = __webpack_require__(0);
 var _require = __webpack_require__(0),
     Set = _require.Set;
 
-var URI = __webpack_require__(65);
+var URI = __webpack_require__(66);
 
 var cx = __webpack_require__(14);
 var generateRandomKey = __webpack_require__(10);
@@ -6461,7 +6485,7 @@ var convertFromHTMLtoContentBlocks = function convertFromHTMLtoContentBlocks(htm
 module.exports = convertFromHTMLtoContentBlocks;
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6495,7 +6519,7 @@ var URI = function () {
 module.exports = URI;
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6533,7 +6557,7 @@ var _require = __webpack_require__(0),
     Map = _require.Map,
     OrderedSet = _require.OrderedSet;
 
-var URI = __webpack_require__(65);
+var URI = __webpack_require__(66);
 
 var cx = __webpack_require__(14);
 var generateRandomKey = __webpack_require__(10);
@@ -7211,7 +7235,7 @@ var convertFromHTMLtoContentBlocks = function convertFromHTMLtoContentBlocks(htm
 module.exports = convertFromHTMLtoContentBlocks;
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7232,7 +7256,7 @@ module.exports = convertFromHTMLtoContentBlocks;
 var DraftModifier = __webpack_require__(5);
 var EditorState = __webpack_require__(2);
 
-var adjustBlockDepthForContentState = __webpack_require__(145);
+var adjustBlockDepthForContentState = __webpack_require__(146);
 var nullthrows = __webpack_require__(8);
 
 var RichTextEditorUtil = {
@@ -7505,7 +7529,7 @@ var RichTextEditorUtil = {
 module.exports = RichTextEditorUtil;
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7633,7 +7657,7 @@ function getDefaultKeyBinding(e) {
 module.exports = getDefaultKeyBinding;
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7664,7 +7688,7 @@ var DraftStringKey = {
 module.exports = DraftStringKey;
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7682,32 +7706,32 @@ module.exports = DraftStringKey;
 
 
 
-var AtomicBlockUtils = __webpack_require__(71);
+var AtomicBlockUtils = __webpack_require__(72);
 var BlockMapBuilder = __webpack_require__(18);
 var CharacterMetadata = __webpack_require__(4);
-var CompositeDraftDecorator = __webpack_require__(87);
+var CompositeDraftDecorator = __webpack_require__(88);
 var ContentBlock = __webpack_require__(13);
 var ContentState = __webpack_require__(30);
 var DefaultDraftBlockRenderMap = __webpack_require__(27);
 var DefaultDraftInlineStyle = __webpack_require__(46);
-var DraftEditor = __webpack_require__(88);
-var DraftEditorBlock = __webpack_require__(53);
+var DraftEditor = __webpack_require__(89);
+var DraftEditorBlock = __webpack_require__(54);
 var DraftEntity = __webpack_require__(20);
 var DraftModifier = __webpack_require__(5);
 var DraftEntityInstance = __webpack_require__(45);
 var EditorState = __webpack_require__(2);
 var KeyBindingUtil = __webpack_require__(38);
-var RichTextEditorUtil = __webpack_require__(67);
+var RichTextEditorUtil = __webpack_require__(68);
 var SelectionState = __webpack_require__(21);
 
 var convertFromDraftStateToRaw = __webpack_require__(151);
 var convertFromRawToDraftState = __webpack_require__(154);
 var generateRandomKey = __webpack_require__(10);
-var getDefaultKeyBinding = __webpack_require__(68);
+var getDefaultKeyBinding = __webpack_require__(69);
 var getVisibleSelectionRect = __webpack_require__(159);
 var gkx = __webpack_require__(7);
 
-var convertFromHTML = gkx('draft_refactored_html_importer') ? __webpack_require__(66) : __webpack_require__(64);
+var convertFromHTML = gkx('draft_refactored_html_importer') ? __webpack_require__(67) : __webpack_require__(65);
 
 var DraftPublic = {
   Editor: DraftEditor,
@@ -7743,7 +7767,7 @@ var DraftPublic = {
 module.exports = DraftPublic;
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7776,7 +7800,7 @@ var SelectionState = __webpack_require__(21);
 
 var generateRandomKey = __webpack_require__(10);
 var gkx = __webpack_require__(7);
-var moveBlockInContentState = __webpack_require__(86);
+var moveBlockInContentState = __webpack_require__(87);
 
 var experimentalTreeDataSupport = gkx('draft_tree_data_support');
 var ContentBlockRecord = experimentalTreeDataSupport ? ContentBlockNode : ContentBlock;
@@ -7877,7 +7901,7 @@ var AtomicBlockUtils = {
 module.exports = AtomicBlockUtils;
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7954,7 +7978,7 @@ function modifyInlineStyle(contentState, selectionState, inlineStyle, addOrRemov
 module.exports = ContentStateInlineStyle;
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7974,7 +7998,7 @@ module.exports = ContentStateInlineStyle;
 
 var Immutable = __webpack_require__(0);
 
-var applyEntityToContentBlock = __webpack_require__(74);
+var applyEntityToContentBlock = __webpack_require__(75);
 
 function applyEntityToContentState(contentState, selectionState, entityKey) {
   var blockMap = contentState.getBlockMap();
@@ -8003,7 +8027,7 @@ function applyEntityToContentState(contentState, selectionState, entityKey) {
 module.exports = applyEntityToContentState;
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8035,7 +8059,7 @@ function applyEntityToContentBlock(contentBlock, start, end, entityKey) {
 module.exports = applyEntityToContentBlock;
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8053,9 +8077,9 @@ module.exports = applyEntityToContentBlock;
 
 
 
-var DraftEntitySegments = __webpack_require__(76);
+var DraftEntitySegments = __webpack_require__(77);
 
-var getRangesForDraftEntity = __webpack_require__(77);
+var getRangesForDraftEntity = __webpack_require__(78);
 var invariant = __webpack_require__(1);
 
 /**
@@ -8155,7 +8179,7 @@ function getEntityRemovalRange(entityMap, block, selectionState, direction, enti
 module.exports = getCharacterRemovalRange;
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8259,7 +8283,7 @@ var DraftEntitySegments = {
 module.exports = DraftEntitySegments;
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8303,7 +8327,7 @@ function getRangesForDraftEntity(block, key) {
 module.exports = getRangesForDraftEntity;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8559,7 +8583,7 @@ var insertFragmentIntoContentState = function insertFragmentIntoContentState(con
 module.exports = insertFragmentIntoContentState;
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8618,7 +8642,7 @@ function insertTextIntoContentState(contentState, selectionState, text, characte
 module.exports = insertTextIntoContentState;
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8661,7 +8685,7 @@ function modifyBlockForContentState(contentState, selectionState, operation) {
 module.exports = modifyBlockForContentState;
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9020,7 +9044,7 @@ var removeFromList = function removeFromList(targetList, startOffset, endOffset)
 module.exports = removeRangeFromContentState;
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9156,7 +9180,7 @@ var splitBlockInContentState = function splitBlockInContentState(contentState, s
 module.exports = splitBlockInContentState;
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9261,7 +9285,7 @@ function areEqual(a, b) {
 module.exports = BlockTree;
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9280,7 +9304,7 @@ module.exports = BlockTree;
 
 
 var Immutable = __webpack_require__(0);
-var UnicodeBidiService = __webpack_require__(85);
+var UnicodeBidiService = __webpack_require__(86);
 
 var nullthrows = __webpack_require__(8);
 
@@ -9314,7 +9338,7 @@ var EditorBidiService = {
 module.exports = EditorBidiService;
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9418,7 +9442,7 @@ var UnicodeBidiService = function () {
 module.exports = UnicodeBidiService;
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9616,7 +9640,7 @@ var moveBlockInContentState = function moveBlockInContentState(contentState, blo
 module.exports = moveBlockInContentState;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9735,7 +9759,7 @@ function occupySlice(targetArr, start, end, componentKey) {
 module.exports = CompositeDraftDecorator;
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9766,12 +9790,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var DefaultDraftBlockRenderMap = __webpack_require__(27);
 var DefaultDraftInlineStyle = __webpack_require__(46);
-var DraftEditorCompositionHandler = __webpack_require__(89);
-var DraftEditorContents = __webpack_require__(90);
-var DraftEditorDragHandler = __webpack_require__(113);
-var DraftEditorEditHandler = __webpack_require__(116);
-var DraftEditorPlaceholder = __webpack_require__(149);
-var DraftODS = __webpack_require__(150);
+var DraftEditorCompositionHandler = __webpack_require__(90);
+var DraftEditorContents = __webpack_require__(91);
+var DraftEditorDragHandler = __webpack_require__(114);
+var DraftEditorEditHandler = __webpack_require__(117);
+var DraftEditorPlaceholder = __webpack_require__(150);
+var DraftEffects = __webpack_require__(49);
 var EditorState = __webpack_require__(2);
 var React = __webpack_require__(9);
 var ReactDOM = __webpack_require__(17);
@@ -9782,7 +9806,7 @@ var UserAgent = __webpack_require__(11);
 var cx = __webpack_require__(14);
 var emptyFunction = __webpack_require__(25);
 var generateRandomKey = __webpack_require__(10);
-var getDefaultKeyBinding = __webpack_require__(68);
+var getDefaultKeyBinding = __webpack_require__(69);
 var getScrollPosition = __webpack_require__(29);
 var gkx = __webpack_require__(7);
 var invariant = __webpack_require__(1);
@@ -10042,7 +10066,9 @@ var DraftEditor = function (_React$Component2) {
     var _this3 = this;
 
     var flushControlled =
-    // $FlowFixMe flushControlled is an unstable feature, so not Flow typed
+    /* $FlowFixMe(>=0.79.1 site=www) This comment suppresses an error found
+     * when Flow v0.79 was deployed. To see the error delete this comment and
+     * run Flow. */
     ReactDOM.unstable_flushControlled;
     // Wrap event handlers in `flushControlled`. In sync mode, this is
     // effetively a no-op. In async mode, this ensures all updates scheduled
@@ -10145,7 +10171,7 @@ var DraftEditor = function (_React$Component2) {
           } },
         React.createElement(
           'div',
-          _extends({
+          {
             'aria-activedescendant': readOnly ? null : this.props.ariaActiveDescendantID,
             'aria-autocomplete': readOnly ? null : this.props.ariaAutoComplete,
             'aria-controls': readOnly ? null : this.props.ariaControls,
@@ -10194,8 +10220,7 @@ var DraftEditor = function (_React$Component2) {
             spellCheck: allowSpellCheck && this.props.spellCheck,
             style: contentStyle,
             suppressContentEditableWarning: true,
-            tabIndex: this.props.tabIndex
-          }, this.props.customAttrs),
+            tabIndex: this.props.tabIndex },
           React.createElement(UpdateDraftEditorFlags, { editor: this, editorState: editorState }),
           React.createElement(DraftEditorContents, editorContentsProps)
         )
@@ -10207,7 +10232,7 @@ var DraftEditor = function (_React$Component2) {
     this._blockSelectEvents = false;
     if (!didInitODS && gkx('draft_ods_enabled')) {
       didInitODS = true;
-      DraftODS.init();
+      DraftEffects.initODS();
     }
     this.setMode('edit');
 
@@ -10305,7 +10330,6 @@ DraftEditor.defaultProps = {
   blockRenderMap: DefaultDraftBlockRenderMap,
   blockRendererFn: emptyFunction.thatReturnsNull,
   blockStyleFn: emptyFunction.thatReturns(''),
-  customAttrs: {},
   keyBindingFn: getDefaultKeyBinding,
   readOnly: false,
   spellCheck: false,
@@ -10316,7 +10340,7 @@ DraftEditor.defaultProps = {
 module.exports = DraftEditor;
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10496,7 +10520,7 @@ var DraftEditorCompositionHandler = {
 module.exports = DraftEditorCompositionHandler;
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10518,10 +10542,10 @@ var gkx = __webpack_require__(7);
 
 var experimentalTreeDataSupport = gkx('draft_tree_data_support');
 
-module.exports = experimentalTreeDataSupport ? __webpack_require__(91) : __webpack_require__(111);
+module.exports = experimentalTreeDataSupport ? __webpack_require__(92) : __webpack_require__(112);
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10554,7 +10578,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DraftEditorBlockNode = __webpack_require__(92);
+var DraftEditorBlockNode = __webpack_require__(93);
 var DraftOffsetKey = __webpack_require__(15);
 var EditorState = __webpack_require__(2);
 var React = __webpack_require__(9);
@@ -10706,7 +10730,7 @@ var DraftEditorContentsExperimental = function (_React$Component) {
 module.exports = DraftEditorContentsExperimental;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10739,7 +10763,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DraftEditorNode = __webpack_require__(93);
+var DraftEditorNode = __webpack_require__(94);
 var DraftOffsetKey = __webpack_require__(15);
 var EditorState = __webpack_require__(2);
 var Immutable = __webpack_require__(0);
@@ -10748,9 +10772,9 @@ var ReactDOM = __webpack_require__(17);
 var Scroll = __webpack_require__(36);
 var Style = __webpack_require__(28);
 
-var getElementPosition = __webpack_require__(51);
+var getElementPosition = __webpack_require__(52);
 var getScrollPosition = __webpack_require__(29);
-var getViewportDimensions = __webpack_require__(52);
+var getViewportDimensions = __webpack_require__(53);
 var invariant = __webpack_require__(1);
 
 var SCROLL_BUFFER = 10;
@@ -11039,7 +11063,7 @@ var DraftEditorBlockNode = function (_React$Component) {
 module.exports = DraftEditorBlockNode;
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11066,7 +11090,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DraftEditorDecoratedLeaves = __webpack_require__(94);
+var DraftEditorDecoratedLeaves = __webpack_require__(95);
 var DraftEditorLeaf = __webpack_require__(48);
 var DraftOffsetKey = __webpack_require__(15);
 var Immutable = __webpack_require__(0);
@@ -11162,7 +11186,7 @@ var DraftEditorNode = function (_React$Component) {
 module.exports = DraftEditorNode;
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11250,7 +11274,7 @@ var DraftEditorDecoratedLeaves = function (_React$Component) {
 module.exports = DraftEditorDecoratedLeaves;
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11267,10 +11291,6 @@ module.exports = DraftEditorDecoratedLeaves;
  */
 
 
-
-var _assign = __webpack_require__(3);
-
-var _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -11368,14 +11388,9 @@ var DraftEditorTextNode = function (_React$Component) {
     if (this.props.children === '') {
       return this._forceFlag ? NEWLINE_A : NEWLINE_B;
     }
-
-    var additionalProps = {};
-    if (typeof this.props.style === 'object') {
-      additionalProps.style = this.props.style;
-    }
     return React.createElement(
       'span',
-      _extends({ key: this._forceFlag ? 'A' : 'B', 'data-text': 'true' }, additionalProps),
+      { key: this._forceFlag ? 'A' : 'B', 'data-text': 'true' },
       this.props.children
     );
   };
@@ -11386,7 +11401,7 @@ var DraftEditorTextNode = function (_React$Component) {
 module.exports = DraftEditorTextNode;
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11411,7 +11426,7 @@ module.exports = DraftEditorTextNode;
 
 
 
-var UAParser = __webpack_require__(97);
+var UAParser = __webpack_require__(98);
 
 var UNKNOWN = 'Unknown';
 
@@ -11472,7 +11487,7 @@ var uaData = {
 module.exports = uaData;
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -12515,7 +12530,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         exports.UAParser = UAParser;
     } else {
         // requirejs env (optional)
-        if ("function" === FUNC_TYPE && __webpack_require__(98)) {
+        if ("function" === FUNC_TYPE && __webpack_require__(99)) {
             !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
                 return UAParser;
             }).call(exports, __webpack_require__, exports, module),
@@ -12551,7 +12566,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -12560,7 +12575,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12946,7 +12961,7 @@ var VersionRange = {
 module.exports = VersionRange;
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13000,7 +13015,7 @@ function mapObject(object, callback, context) {
 module.exports = mapObject;
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13033,7 +13048,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13051,10 +13066,11 @@ module.exports = memoizeStringOnly;
 
 
 
-var DraftJsDebugLogging = __webpack_require__(49);
+var DraftEffects = __webpack_require__(49);
+var DraftJsDebugLogging = __webpack_require__(50);
 
 var containsNode = __webpack_require__(35);
-var getActiveElement = __webpack_require__(50);
+var getActiveElement = __webpack_require__(51);
 var invariant = __webpack_require__(1);
 
 function getAnonymizedDOM(node, getNodeLabels) {
@@ -13275,6 +13291,7 @@ function addPointToSelection(selection, node, offset, selectionState) {
       extraParams: JSON.stringify({ offset: offset }),
       selectionState: JSON.stringify(selectionState.toJS())
     });
+    DraftEffects.handleExtensionCausedError();
   }
   range.setStart(node, offset);
   selection.addRange(range);
@@ -13284,7 +13301,7 @@ module.exports = setDraftEditorSelection;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13299,7 +13316,7 @@ module.exports = setDraftEditorSelection;
  * @typechecks
  */
 
-var isNode = __webpack_require__(104);
+var isNode = __webpack_require__(105);
 
 /**
  * @param {*} object The object to check.
@@ -13312,7 +13329,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13340,7 +13357,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13355,8 +13372,8 @@ module.exports = isNode;
  * @typechecks
  */
 
-var camelize = __webpack_require__(106);
-var hyphenate = __webpack_require__(107);
+var camelize = __webpack_require__(107);
+var hyphenate = __webpack_require__(108);
 
 function asString(value) /*?string*/{
   return value == null ? value : String(value);
@@ -13397,7 +13414,7 @@ function getStyleProperty( /*DOMNode*/node, /*string*/name) /*?string*/{
 module.exports = getStyleProperty;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13432,7 +13449,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13468,7 +13485,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13522,7 +13539,7 @@ function getElementRect(elem) {
 module.exports = getElementRect;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13559,7 +13576,7 @@ function getDocumentScrollElement(doc) {
 module.exports = getDocumentScrollElement;
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13601,7 +13618,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13629,13 +13646,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DraftEditorBlock = __webpack_require__(53);
+var DraftEditorBlock = __webpack_require__(54);
 var DraftOffsetKey = __webpack_require__(15);
 var EditorState = __webpack_require__(2);
 var React = __webpack_require__(9);
 
 var cx = __webpack_require__(14);
-var joinClasses = __webpack_require__(112);
+var joinClasses = __webpack_require__(113);
 var nullthrows = __webpack_require__(8);
 
 /**
@@ -13856,7 +13873,7 @@ var DraftEditorContents = function (_React$Component) {
 module.exports = DraftEditorContents;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13899,7 +13916,7 @@ function joinClasses(className /*, ... */) {
 module.exports = joinClasses;
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13917,13 +13934,13 @@ module.exports = joinClasses;
 
 
 
-var DataTransfer = __webpack_require__(54);
+var DataTransfer = __webpack_require__(55);
 var DraftModifier = __webpack_require__(5);
 var EditorState = __webpack_require__(2);
 
 var findAncestorOffsetKey = __webpack_require__(37);
-var getTextContentFromFiles = __webpack_require__(56);
-var getUpdatedSelectionState = __webpack_require__(57);
+var getTextContentFromFiles = __webpack_require__(57);
+var getUpdatedSelectionState = __webpack_require__(58);
 var isEventHandled = __webpack_require__(22);
 var nullthrows = __webpack_require__(8);
 
@@ -14002,14 +14019,6 @@ var DraftEditorDragHandler = {
     }
 
     editor.update(insertTextAtSelection(editorState, dropSelection, data.getText()));
-  },
-
-  /**
-   * Edge disallows drag event by default (A No Symbol (⃠) will be shown on the dragged image by default).
-   * Without preventing the default dragOver handler a drop event can not be triggered.
-   */
-  onDragOver: function onDragOver(editor, e) {
-    e.preventDefault();
   }
 };
 
@@ -14029,7 +14038,7 @@ function insertTextAtSelection(editorState, selection, text) {
 module.exports = DraftEditorDragHandler;
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14061,7 +14070,7 @@ function getParts(mimeString) {
 module.exports = PhotosMimeType;
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14191,7 +14200,7 @@ function createArrayFromMixed(obj) {
 module.exports = createArrayFromMixed;
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14209,18 +14218,18 @@ module.exports = createArrayFromMixed;
 
 
 
-var onBeforeInput = __webpack_require__(117);
-var onBlur = __webpack_require__(121);
-var onCompositionStart = __webpack_require__(122);
-var onCopy = __webpack_require__(123);
-var onCut = __webpack_require__(124);
-var onDragOver = __webpack_require__(125);
-var onDragStart = __webpack_require__(126);
-var onFocus = __webpack_require__(127);
-var onInput = __webpack_require__(128);
-var onKeyDown = __webpack_require__(129);
-var onPaste = __webpack_require__(143);
-var onSelect = __webpack_require__(147);
+var onBeforeInput = __webpack_require__(118);
+var onBlur = __webpack_require__(122);
+var onCompositionStart = __webpack_require__(123);
+var onCopy = __webpack_require__(124);
+var onCut = __webpack_require__(125);
+var onDragOver = __webpack_require__(126);
+var onDragStart = __webpack_require__(127);
+var onFocus = __webpack_require__(128);
+var onInput = __webpack_require__(129);
+var onKeyDown = __webpack_require__(130);
+var onPaste = __webpack_require__(144);
+var onSelect = __webpack_require__(148);
 
 var DraftEditorEditHandler = {
   onBeforeInput: onBeforeInput,
@@ -14240,7 +14249,7 @@ var DraftEditorEditHandler = {
 module.exports = DraftEditorEditHandler;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14266,7 +14275,7 @@ var getEntityKeyForSelection = __webpack_require__(34);
 var isEventHandled = __webpack_require__(22);
 var isSelectionAtLeafStart = __webpack_require__(47);
 var nullthrows = __webpack_require__(8);
-var setImmediate = __webpack_require__(118);
+var setImmediate = __webpack_require__(119);
 
 // When nothing is focused, Firefox regards two characters, `'` and `/`, as
 // commands that should open and focus the "quickfind" search bar. This should
@@ -14452,7 +14461,7 @@ module.exports = editOnBeforeInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14469,12 +14478,12 @@ module.exports = editOnBeforeInput;
 // setimmediate adds setImmediate to the global. We want to make sure we export
 // the actual function.
 
-__webpack_require__(119);
+__webpack_require__(120);
 module.exports = global.setImmediate;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -14664,10 +14673,10 @@ module.exports = global.setImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(120)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(121)))
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -14857,7 +14866,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14878,7 +14887,7 @@ process.umask = function() { return 0; };
 var EditorState = __webpack_require__(2);
 
 var containsNode = __webpack_require__(35);
-var getActiveElement = __webpack_require__(50);
+var getActiveElement = __webpack_require__(51);
 
 function editOnBlur(editor, e) {
   // In a contentEditable element, when you select a range and then click
@@ -14912,7 +14921,7 @@ module.exports = editOnBlur;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14946,7 +14955,7 @@ function editOnCompositionStart(editor, e) {
 module.exports = editOnCompositionStart;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14964,7 +14973,7 @@ module.exports = editOnCompositionStart;
 
 
 
-var getFragmentFromSelection = __webpack_require__(58);
+var getFragmentFromSelection = __webpack_require__(59);
 
 /**
  * If we have a selection, create a ContentState fragment and store
@@ -14987,7 +14996,7 @@ function editOnCopy(editor, e) {
 module.exports = editOnCopy;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15009,7 +15018,7 @@ var DraftModifier = __webpack_require__(5);
 var EditorState = __webpack_require__(2);
 var Style = __webpack_require__(28);
 
-var getFragmentFromSelection = __webpack_require__(58);
+var getFragmentFromSelection = __webpack_require__(59);
 var getScrollPosition = __webpack_require__(29);
 
 /**
@@ -15061,7 +15070,7 @@ function removeFragment(editorState) {
 module.exports = editOnCut;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15091,7 +15100,7 @@ function editOnDragOver(editor, e) {
 module.exports = editOnDragOver;
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15120,7 +15129,7 @@ function editOnDragStart(editor) {
 module.exports = editOnDragStart;
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15171,7 +15180,7 @@ function editOnFocus(editor, e) {
 module.exports = editOnFocus;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15352,7 +15361,7 @@ module.exports = editOnInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15374,20 +15383,20 @@ var DraftModifier = __webpack_require__(5);
 var EditorState = __webpack_require__(2);
 var KeyBindingUtil = __webpack_require__(38);
 var Keys = __webpack_require__(33);
-var SecondaryClipboard = __webpack_require__(130);
+var SecondaryClipboard = __webpack_require__(131);
 var UserAgent = __webpack_require__(11);
 
 var isEventHandled = __webpack_require__(22);
-var keyCommandBackspaceToStartOfLine = __webpack_require__(131);
-var keyCommandBackspaceWord = __webpack_require__(133);
-var keyCommandDeleteWord = __webpack_require__(135);
-var keyCommandInsertNewline = __webpack_require__(136);
-var keyCommandMoveSelectionToEndOfBlock = __webpack_require__(137);
-var keyCommandMoveSelectionToStartOfBlock = __webpack_require__(138);
-var keyCommandPlainBackspace = __webpack_require__(139);
-var keyCommandPlainDelete = __webpack_require__(140);
-var keyCommandTransposeCharacters = __webpack_require__(141);
-var keyCommandUndo = __webpack_require__(142);
+var keyCommandBackspaceToStartOfLine = __webpack_require__(132);
+var keyCommandBackspaceWord = __webpack_require__(134);
+var keyCommandDeleteWord = __webpack_require__(136);
+var keyCommandInsertNewline = __webpack_require__(137);
+var keyCommandMoveSelectionToEndOfBlock = __webpack_require__(138);
+var keyCommandMoveSelectionToStartOfBlock = __webpack_require__(139);
+var keyCommandPlainBackspace = __webpack_require__(140);
+var keyCommandPlainDelete = __webpack_require__(141);
+var keyCommandTransposeCharacters = __webpack_require__(142);
+var keyCommandUndo = __webpack_require__(143);
 
 var isOptionKeyCommand = KeyBindingUtil.isOptionKeyCommand;
 
@@ -15531,7 +15540,7 @@ function editOnKeyDown(editor, e) {
 module.exports = editOnKeyDown;
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15606,7 +15615,7 @@ var SecondaryClipboard = {
 module.exports = SecondaryClipboard;
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15626,8 +15635,8 @@ module.exports = SecondaryClipboard;
 
 var EditorState = __webpack_require__(2);
 
-var expandRangeToStartOfLine = __webpack_require__(132);
-var getDraftEditorSelectionWithNodes = __webpack_require__(60);
+var expandRangeToStartOfLine = __webpack_require__(133);
+var getDraftEditorSelectionWithNodes = __webpack_require__(61);
 var moveSelectionBackward = __webpack_require__(39);
 var removeTextWithStrategy = __webpack_require__(23);
 
@@ -15656,7 +15665,7 @@ module.exports = keyCommandBackspaceToStartOfLine;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15676,7 +15685,7 @@ module.exports = keyCommandBackspaceToStartOfLine;
 
 var UnicodeUtils = __webpack_require__(16);
 
-var getRangeClientRects = __webpack_require__(59);
+var getRangeClientRects = __webpack_require__(60);
 var invariant = __webpack_require__(1);
 
 /**
@@ -15854,7 +15863,7 @@ function expandRangeToStartOfLine(range) {
 module.exports = expandRangeToStartOfLine;
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15872,7 +15881,7 @@ module.exports = expandRangeToStartOfLine;
 
 
 
-var DraftRemovableWord = __webpack_require__(62);
+var DraftRemovableWord = __webpack_require__(63);
 var EditorState = __webpack_require__(2);
 
 var moveSelectionBackward = __webpack_require__(39);
@@ -15907,7 +15916,7 @@ function keyCommandBackspaceWord(editorState) {
 module.exports = keyCommandBackspaceWord;
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15948,7 +15957,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15966,10 +15975,10 @@ module.exports = {
 
 
 
-var DraftRemovableWord = __webpack_require__(62);
+var DraftRemovableWord = __webpack_require__(63);
 var EditorState = __webpack_require__(2);
 
-var moveSelectionForward = __webpack_require__(63);
+var moveSelectionForward = __webpack_require__(64);
 var removeTextWithStrategy = __webpack_require__(23);
 
 /**
@@ -15999,7 +16008,7 @@ function keyCommandDeleteWord(editorState) {
 module.exports = keyCommandDeleteWord;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16028,7 +16037,7 @@ function keyCommandInsertNewline(editorState) {
 module.exports = keyCommandInsertNewline;
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16071,7 +16080,7 @@ function keyCommandMoveSelectionToEndOfBlock(editorState) {
 module.exports = keyCommandMoveSelectionToEndOfBlock;
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16114,7 +16123,7 @@ function keyCommandMoveSelectionToStartOfBlock(editorState) {
 module.exports = keyCommandMoveSelectionToStartOfBlock;
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16164,7 +16173,7 @@ function keyCommandPlainBackspace(editorState) {
 module.exports = keyCommandPlainBackspace;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16185,7 +16194,7 @@ module.exports = keyCommandPlainBackspace;
 var EditorState = __webpack_require__(2);
 var UnicodeUtils = __webpack_require__(16);
 
-var moveSelectionForward = __webpack_require__(63);
+var moveSelectionForward = __webpack_require__(64);
 var removeTextWithStrategy = __webpack_require__(23);
 
 /**
@@ -16215,7 +16224,7 @@ function keyCommandPlainDelete(editorState) {
 module.exports = keyCommandPlainDelete;
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16299,7 +16308,7 @@ function keyCommandTransposeCharacters(editorState) {
 module.exports = keyCommandTransposeCharacters;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16353,7 +16362,7 @@ function keyCommandUndo(e, editorState, updateFn) {
 module.exports = keyCommandUndo;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16373,16 +16382,16 @@ module.exports = keyCommandUndo;
 
 var BlockMapBuilder = __webpack_require__(18);
 var CharacterMetadata = __webpack_require__(4);
-var DataTransfer = __webpack_require__(54);
+var DataTransfer = __webpack_require__(55);
 var DraftModifier = __webpack_require__(5);
-var DraftPasteProcessor = __webpack_require__(144);
+var DraftPasteProcessor = __webpack_require__(145);
 var EditorState = __webpack_require__(2);
-var RichTextEditorUtil = __webpack_require__(67);
+var RichTextEditorUtil = __webpack_require__(68);
 
 var getEntityKeyForSelection = __webpack_require__(34);
-var getTextContentFromFiles = __webpack_require__(56);
+var getTextContentFromFiles = __webpack_require__(57);
 var isEventHandled = __webpack_require__(22);
-var splitTextIntoTextBlocks = __webpack_require__(146);
+var splitTextIntoTextBlocks = __webpack_require__(147);
 
 /**
  * Paste content.
@@ -16523,7 +16532,7 @@ function areTextBlocksAndClipboardEqual(textBlocks, blockMap) {
 module.exports = editOnPaste;
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16550,8 +16559,8 @@ var ContentBlock = __webpack_require__(13);
 var ContentBlockNode = __webpack_require__(6);
 var Immutable = __webpack_require__(0);
 
-var convertFromHTMLtoContentBlocksClassic = __webpack_require__(64);
-var convertFromHTMLtoContentBlocksNew = __webpack_require__(66);
+var convertFromHTMLtoContentBlocksClassic = __webpack_require__(65);
+var convertFromHTMLtoContentBlocksNew = __webpack_require__(67);
 var generateRandomKey = __webpack_require__(10);
 var getSafeBodyFromHTML = __webpack_require__(40);
 var gkx = __webpack_require__(7);
@@ -16605,7 +16614,7 @@ var DraftPasteProcessor = {
 module.exports = DraftPasteProcessor;
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16649,7 +16658,7 @@ function adjustBlockDepthForContentState(contentState, selectionState, adjustmen
 module.exports = adjustBlockDepthForContentState;
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16676,7 +16685,7 @@ function splitTextIntoTextBlocks(text) {
 module.exports = splitTextIntoTextBlocks;
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16694,11 +16703,11 @@ module.exports = splitTextIntoTextBlocks;
 
 
 
-var DraftJsDebugLogging = __webpack_require__(49);
+var DraftJsDebugLogging = __webpack_require__(50);
 var EditorState = __webpack_require__(2);
 var ReactDOM = __webpack_require__(17);
 
-var getDraftEditorSelection = __webpack_require__(148);
+var getDraftEditorSelection = __webpack_require__(149);
 var invariant = __webpack_require__(1);
 
 function editOnSelect(editor) {
@@ -16736,7 +16745,7 @@ function editOnSelect(editor) {
 module.exports = editOnSelect;
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16754,7 +16763,7 @@ module.exports = editOnSelect;
 
 
 
-var getDraftEditorSelectionWithNodes = __webpack_require__(60);
+var getDraftEditorSelectionWithNodes = __webpack_require__(61);
 
 /**
  * Convert the current selection range to an anchor/focus pair of offset keys
@@ -16778,7 +16787,7 @@ module.exports = getDraftEditorSelection;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16857,27 +16866,6 @@ var DraftEditorPlaceholder = function (_React$Component) {
 module.exports = DraftEditorPlaceholder;
 
 /***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- */
-
-
-
-module.exports = {
-  init: function init() {}
-};
-
-/***/ }),
 /* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16902,7 +16890,7 @@ var _extends = _assign || function (target) { for (var i = 1; i < arguments.leng
 
 var ContentBlock = __webpack_require__(13);
 var ContentBlockNode = __webpack_require__(6);
-var DraftStringKey = __webpack_require__(69);
+var DraftStringKey = __webpack_require__(70);
 
 var encodeEntityRanges = __webpack_require__(152);
 var encodeInlineStyleRanges = __webpack_require__(153);
@@ -17041,7 +17029,7 @@ module.exports = convertFromDraftStateToRaw;
 
 
 
-var DraftStringKey = __webpack_require__(69);
+var DraftStringKey = __webpack_require__(70);
 var UnicodeUtils = __webpack_require__(16);
 
 var strlen = UnicodeUtils.strlen;
@@ -17724,7 +17712,7 @@ module.exports = getVisibleSelectionRect;
 
 
 
-var getRangeClientRects = __webpack_require__(59);
+var getRangeClientRects = __webpack_require__(60);
 
 /**
  * Like range.getBoundingClientRect() but normalizes for browser bugs.
