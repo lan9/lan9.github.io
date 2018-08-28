@@ -1350,33 +1350,6 @@ module.exports = generateRandomKey;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1390,11 +1363,11 @@ module.exports = g;
 
 
 
-var UserAgentData = __webpack_require__(113);
-var VersionRange = __webpack_require__(116);
+var UserAgentData = __webpack_require__(97);
+var VersionRange = __webpack_require__(100);
 
-var mapObject = __webpack_require__(117);
-var memoizeStringOnly = __webpack_require__(118);
+var mapObject = __webpack_require__(101);
+var memoizeStringOnly = __webpack_require__(102);
 
 /**
  * Checks to see whether `name` and `version` satisfy `query`.
@@ -1619,6 +1592,33 @@ var UserAgent = {
 };
 
 module.exports = mapObject(UserAgent, memoizeStringOnly);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
 
 /***/ }),
 /* 13 */
@@ -2913,7 +2913,7 @@ module.exports = DefaultDraftBlockRenderMap;
  * @typechecks
  */
 
-var getStyleProperty = __webpack_require__(100);
+var getStyleProperty = __webpack_require__(106);
 
 /**
  * @param {DOMNode} element [description]
@@ -2981,8 +2981,8 @@ module.exports = Style;
 
 
 
-var getDocumentScrollElement = __webpack_require__(104);
-var getUnboundedScrollPosition = __webpack_require__(105);
+var getDocumentScrollElement = __webpack_require__(110);
+var getUnboundedScrollPosition = __webpack_require__(111);
 
 /**
  * Gets the scroll position of the supplied element or window.
@@ -3522,7 +3522,7 @@ module.exports = getEntityKeyForSelection;
  * 
  */
 
-var isTextNode = __webpack_require__(98);
+var isTextNode = __webpack_require__(104);
 
 /*eslint-disable no-bitwise */
 
@@ -3695,7 +3695,7 @@ module.exports = findAncestorOffsetKey;
 
 
 
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var isOSX = UserAgent.isPlatform('Mac OS X');
 
@@ -3801,7 +3801,7 @@ module.exports = moveSelectionBackward;
 
 
 
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var invariant = __webpack_require__(1);
 
@@ -4369,7 +4369,7 @@ var React = __webpack_require__(9);
 var ReactDOM = __webpack_require__(17);
 
 var invariant = __webpack_require__(1);
-var setDraftEditorSelection = __webpack_require__(97);
+var setDraftEditorSelection = __webpack_require__(103);
 
 /**
  * All leaf nodes in the editor are spans with single text nodes. Leaf
@@ -4622,7 +4622,7 @@ module.exports = getActiveElement;
  * @typechecks
  */
 
-var getElementRect = __webpack_require__(103);
+var getElementRect = __webpack_require__(109);
 
 /**
  * Gets an element's position in pixels relative to the viewport. The returned
@@ -4944,9 +4944,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * @typechecks
  */
 
-var PhotosMimeType = __webpack_require__(109);
+var PhotosMimeType = __webpack_require__(115);
 
-var createArrayFromMixed = __webpack_require__(110);
+var createArrayFromMixed = __webpack_require__(116);
 var emptyFunction = __webpack_require__(25);
 
 var CR_LF_REGEX = new RegExp('\r\n', 'g');
@@ -5277,7 +5277,7 @@ function readFile(file, callback) {
 }
 
 module.exports = getTextContentFromFiles;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 58 */
@@ -5412,7 +5412,7 @@ module.exports = getFragmentFromSelection;
 
 
 
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var invariant = __webpack_require__(1);
 
@@ -7549,7 +7549,7 @@ module.exports = RichTextEditorUtil;
 
 var KeyBindingUtil = __webpack_require__(38);
 var Keys = __webpack_require__(33);
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var isOSX = UserAgent.isPlatform('Mac OS X');
 
@@ -9792,8 +9792,8 @@ var DefaultDraftBlockRenderMap = __webpack_require__(27);
 var DefaultDraftInlineStyle = __webpack_require__(46);
 var DraftEditorCompositionHandler = __webpack_require__(90);
 var DraftEditorContents = __webpack_require__(91);
-var DraftEditorDragHandler = __webpack_require__(108);
-var DraftEditorEditHandler = __webpack_require__(111);
+var DraftEditorDragHandler = __webpack_require__(114);
+var DraftEditorEditHandler = __webpack_require__(117);
 var DraftEditorPlaceholder = __webpack_require__(150);
 var DraftEffects = __webpack_require__(49);
 var EditorState = __webpack_require__(2);
@@ -9801,7 +9801,7 @@ var React = __webpack_require__(9);
 var ReactDOM = __webpack_require__(17);
 var Scroll = __webpack_require__(36);
 var Style = __webpack_require__(28);
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var cx = __webpack_require__(14);
 var emptyFunction = __webpack_require__(25);
@@ -10542,7 +10542,7 @@ var gkx = __webpack_require__(7);
 
 var experimentalTreeDataSupport = gkx('draft_tree_data_support');
 
-module.exports = experimentalTreeDataSupport ? __webpack_require__(92) : __webpack_require__(106);
+module.exports = experimentalTreeDataSupport ? __webpack_require__(92) : __webpack_require__(112);
 
 /***/ }),
 /* 92 */
@@ -11300,14 +11300,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var React = __webpack_require__(9);
 var ReactDOM = __webpack_require__(17);
+var UserAgent = __webpack_require__(11);
 
 var invariant = __webpack_require__(1);
+
+/**
+ * In IE, spans with <br> tags render as two newlines. By rendering a span
+ * with only a newline character, we can be sure to render a single line.
+ *
+ * In addition, Edge deletes the <br> when typing in a span with just <br> in it.
+ * However because <br> is only rendered on empty line (see `render()`), after typing React
+ * would try to remove the <br> tag, which may already been removed by Edge.
+ * This causes the render to fail. Fall back to \n on Edge as well, for this reason.
+ */
+var useNewlineChar = UserAgent.isBrowser('IE <= 11') || UserAgent.isBrowser('Edge');
 
 /**
  * Check whether the node should be considered a newline.
  */
 function isNewline(node) {
-  return node.textContent === '\n';
+  return useNewlineChar ? node.textContent === '\n' : node.tagName === 'BR';
 }
 
 /**
@@ -11321,21 +11333,17 @@ function isNewline(node) {
  * See http://jsfiddle.net/9khdavod/ for the failure case, and
  * http://jsfiddle.net/7pg143f7/ for the fixed case.
  */
-var NEWLINE_A = React.createElement(
+var NEWLINE_A = useNewlineChar ? React.createElement(
   'span',
   { key: 'A', 'data-text': 'true' },
-  ' ',
-  '\n',
-  ' '
-);
+  '\n'
+) : React.createElement('br', { key: 'A', 'data-text': 'true' });
 
-var NEWLINE_B = React.createElement(
+var NEWLINE_B = useNewlineChar ? React.createElement(
   'span',
   { key: 'B', 'data-text': 'true' },
-  ' ',
-  '\n',
-  ' '
-);
+  '\n'
+) : React.createElement('br', { key: 'B', 'data-text': 'true' });
 
 /**
  * The lowest-level component in a `DraftEditor`, the text node component
@@ -11397,1419 +11405,6 @@ module.exports = DraftEditorTextNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @format
- * 
- */
-
-
-
-var DraftEffects = __webpack_require__(49);
-var DraftJsDebugLogging = __webpack_require__(50);
-
-var containsNode = __webpack_require__(35);
-var getActiveElement = __webpack_require__(51);
-var invariant = __webpack_require__(1);
-
-function getAnonymizedDOM(node, getNodeLabels) {
-  if (!node) {
-    return '[empty]';
-  }
-
-  var anonymized = anonymizeTextWithin(node, getNodeLabels);
-  if (anonymized.nodeType === Node.TEXT_NODE) {
-    return anonymized.textContent;
-  }
-
-  !(anonymized instanceof Element) ?  true ? invariant(false, 'Node must be an Element if it is not a text node.') : invariant(false) : void 0;
-  return anonymized.outerHTML;
-}
-
-function anonymizeTextWithin(node, getNodeLabels) {
-  var labels = getNodeLabels !== undefined ? getNodeLabels(node) : [];
-
-  if (node.nodeType === Node.TEXT_NODE) {
-    var length = node.textContent.length;
-    return document.createTextNode('[text ' + length + (labels.length ? ' | ' + labels.join(', ') : '') + ']');
-  }
-
-  var clone = node.cloneNode();
-  if (clone.nodeType === 1 && labels.length) {
-    clone.setAttribute('data-labels', labels.join(', '));
-  }
-  var childNodes = node.childNodes;
-  for (var ii = 0; ii < childNodes.length; ii++) {
-    clone.appendChild(anonymizeTextWithin(childNodes[ii], getNodeLabels));
-  }
-
-  return clone;
-}
-
-function getAnonymizedEditorDOM(node, getNodeLabels) {
-  // grabbing the DOM content of the Draft editor
-  var currentNode = node;
-  while (currentNode) {
-    if (currentNode instanceof Element && currentNode.hasAttribute('contenteditable')) {
-      // found the Draft editor container
-      return getAnonymizedDOM(currentNode, getNodeLabels);
-    } else {
-      currentNode = currentNode.parentNode;
-    }
-  }
-  return 'Could not find contentEditable parent of node';
-}
-
-function getNodeLength(node) {
-  return node.nodeValue === null ? node.childNodes.length : node.nodeValue.length;
-}
-
-/**
- * In modern non-IE browsers, we can support both forward and backward
- * selections.
- *
- * Note: IE10+ supports the Selection object, but it does not support
- * the `extend` method, which means that even in modern IE, it's not possible
- * to programatically create a backward selection. Thus, for all IE
- * versions, we use the old IE API to create our selections.
- */
-function setDraftEditorSelection(selectionState, node, blockKey, nodeStart, nodeEnd) {
-  // It's possible that the editor has been removed from the DOM but
-  // our selection code doesn't know it yet. Forcing selection in
-  // this case may lead to errors, so just bail now.
-  if (!containsNode(document.documentElement, node)) {
-    return;
-  }
-
-  var selection = global.getSelection();
-  var anchorKey = selectionState.getAnchorKey();
-  var anchorOffset = selectionState.getAnchorOffset();
-  var focusKey = selectionState.getFocusKey();
-  var focusOffset = selectionState.getFocusOffset();
-  var isBackward = selectionState.getIsBackward();
-
-  // IE doesn't support backward selection. Swap key/offset pairs.
-  if (!selection.extend && isBackward) {
-    var tempKey = anchorKey;
-    var tempOffset = anchorOffset;
-    anchorKey = focusKey;
-    anchorOffset = focusOffset;
-    focusKey = tempKey;
-    focusOffset = tempOffset;
-    isBackward = false;
-  }
-
-  var hasAnchor = anchorKey === blockKey && nodeStart <= anchorOffset && nodeEnd >= anchorOffset;
-
-  var hasFocus = focusKey === blockKey && nodeStart <= focusOffset && nodeEnd >= focusOffset;
-
-  // If the selection is entirely bound within this node, set the selection
-  // and be done.
-  if (hasAnchor && hasFocus) {
-    selection.removeAllRanges();
-    addPointToSelection(selection, node, anchorOffset - nodeStart, selectionState);
-    addFocusToSelection(selection, node, focusOffset - nodeStart, selectionState);
-    return;
-  }
-
-  if (!isBackward) {
-    // If the anchor is within this node, set the range start.
-    if (hasAnchor) {
-      selection.removeAllRanges();
-      addPointToSelection(selection, node, anchorOffset - nodeStart, selectionState);
-    }
-
-    // If the focus is within this node, we can assume that we have
-    // already set the appropriate start range on the selection, and
-    // can simply extend the selection.
-    if (hasFocus) {
-      addFocusToSelection(selection, node, focusOffset - nodeStart, selectionState);
-    }
-  } else {
-    // If this node has the focus, set the selection range to be a
-    // collapsed range beginning here. Later, when we encounter the anchor,
-    // we'll use this information to extend the selection.
-    if (hasFocus) {
-      selection.removeAllRanges();
-      addPointToSelection(selection, node, focusOffset - nodeStart, selectionState);
-    }
-
-    // If this node has the anchor, we may assume that the correct
-    // focus information is already stored on the selection object.
-    // We keep track of it, reset the selection range, and extend it
-    // back to the focus point.
-    if (hasAnchor) {
-      var storedFocusNode = selection.focusNode;
-      var storedFocusOffset = selection.focusOffset;
-
-      selection.removeAllRanges();
-      addPointToSelection(selection, node, anchorOffset - nodeStart, selectionState);
-      addFocusToSelection(selection, storedFocusNode, storedFocusOffset, selectionState);
-    }
-  }
-}
-
-/**
- * Extend selection towards focus point.
- */
-function addFocusToSelection(selection, node, offset, selectionState) {
-  var activeElement = getActiveElement();
-  if (selection.extend && containsNode(activeElement, node)) {
-    // If `extend` is called while another element has focus, an error is
-    // thrown. We therefore disable `extend` if the active element is somewhere
-    // other than the node we are selecting. This should only occur in Firefox,
-    // since it is the only browser to support multiple selections.
-    // See https://bugzilla.mozilla.org/show_bug.cgi?id=921444.
-
-    // logging to catch bug that is being reported in t16250795
-    if (offset > getNodeLength(node)) {
-      // the call to 'selection.extend' is about to throw
-      DraftJsDebugLogging.logSelectionStateFailure({
-        anonymizedDom: getAnonymizedEditorDOM(node),
-        extraParams: JSON.stringify({ offset: offset }),
-        selectionState: JSON.stringify(selectionState.toJS())
-      });
-    }
-
-    // logging to catch bug that is being reported in t18110632
-    var nodeWasFocus = node === selection.focusNode;
-    try {
-      selection.extend(node, offset);
-    } catch (e) {
-      DraftJsDebugLogging.logSelectionStateFailure({
-        anonymizedDom: getAnonymizedEditorDOM(node, function (n) {
-          var labels = [];
-          if (n === activeElement) {
-            labels.push('active element');
-          }
-          if (n === selection.anchorNode) {
-            labels.push('selection anchor node');
-          }
-          if (n === selection.focusNode) {
-            labels.push('selection focus node');
-          }
-          return labels;
-        }),
-        extraParams: JSON.stringify({
-          activeElementName: activeElement ? activeElement.nodeName : null,
-          nodeIsFocus: node === selection.focusNode,
-          nodeWasFocus: nodeWasFocus,
-          selectionRangeCount: selection.rangeCount,
-          selectionAnchorNodeName: selection.anchorNode ? selection.anchorNode.nodeName : null,
-          selectionAnchorOffset: selection.anchorOffset,
-          selectionFocusNodeName: selection.focusNode ? selection.focusNode.nodeName : null,
-          selectionFocusOffset: selection.focusOffset,
-          message: e ? '' + e : null,
-          offset: offset
-        }, null, 2),
-        selectionState: JSON.stringify(selectionState.toJS(), null, 2)
-      });
-      // allow the error to be thrown -
-      // better than continuing in a broken state
-      throw e;
-    }
-  } else {
-    // IE doesn't support extend. This will mean no backward selection.
-    // Extract the existing selection range and add focus to it.
-    // Additionally, clone the selection range. IE11 throws an
-    // InvalidStateError when attempting to access selection properties
-    // after the range is detached.
-    var range = selection.getRangeAt(0);
-    range.setEnd(node, offset);
-    selection.addRange(range.cloneRange());
-  }
-}
-
-function addPointToSelection(selection, node, offset, selectionState) {
-  var range = document.createRange();
-  // logging to catch bug that is being reported in t16250795
-  if (offset > getNodeLength(node)) {
-    // in this case we know that the call to 'range.setStart' is about to throw
-    DraftJsDebugLogging.logSelectionStateFailure({
-      anonymizedDom: getAnonymizedEditorDOM(node),
-      extraParams: JSON.stringify({ offset: offset }),
-      selectionState: JSON.stringify(selectionState.toJS())
-    });
-    DraftEffects.handleExtensionCausedError();
-  }
-  range.setStart(node, offset);
-  selection.addRange(range);
-}
-
-module.exports = setDraftEditorSelection;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var isNode = __webpack_require__(99);
-
-/**
- * @param {*} object The object to check.
- * @return {boolean} Whether or not the object is a DOM text node.
- */
-function isTextNode(object) {
-  return isNode(object) && object.nodeType == 3;
-}
-
-module.exports = isTextNode;
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-/**
- * @param {*} object The object to check.
- * @return {boolean} Whether or not the object is a DOM node.
- */
-function isNode(object) {
-  var doc = object ? object.ownerDocument || object : document;
-  var defaultView = doc.defaultView || window;
-  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
-}
-
-module.exports = isNode;
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var camelize = __webpack_require__(101);
-var hyphenate = __webpack_require__(102);
-
-function asString(value) /*?string*/{
-  return value == null ? value : String(value);
-}
-
-function getStyleProperty( /*DOMNode*/node, /*string*/name) /*?string*/{
-  var computedStyle = void 0;
-
-  // W3C Standard
-  if (window.getComputedStyle) {
-    // In certain cases such as within an iframe in FF3, this returns null.
-    computedStyle = window.getComputedStyle(node, null);
-    if (computedStyle) {
-      return asString(computedStyle.getPropertyValue(hyphenate(name)));
-    }
-  }
-  // Safari
-  if (document.defaultView && document.defaultView.getComputedStyle) {
-    computedStyle = document.defaultView.getComputedStyle(node, null);
-    // A Safari bug causes this to return null for `display: none` elements.
-    if (computedStyle) {
-      return asString(computedStyle.getPropertyValue(hyphenate(name)));
-    }
-    if (name === 'display') {
-      return 'none';
-    }
-  }
-  // Internet Explorer
-  if (node.currentStyle) {
-    if (name === 'float') {
-      return asString(node.currentStyle.cssFloat || node.currentStyle.styleFloat);
-    }
-    return asString(node.currentStyle[camelize(name)]);
-  }
-  return asString(node.style && node.style[camelize(name)]);
-}
-
-module.exports = getStyleProperty;
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var _hyphenPattern = /-(.)/g;
-
-/**
- * Camelcases a hyphenated string, for example:
- *
- *   > camelize('background-color')
- *   < "backgroundColor"
- *
- * @param {string} string
- * @return {string}
- */
-function camelize(string) {
-  return string.replace(_hyphenPattern, function (_, character) {
-    return character.toUpperCase();
-  });
-}
-
-module.exports = camelize;
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var _uppercasePattern = /([A-Z])/g;
-
-/**
- * Hyphenates a camelcased string, for example:
- *
- *   > hyphenate('backgroundColor')
- *   < "background-color"
- *
- * For CSS style names, use `hyphenateStyleName` instead which works properly
- * with all vendor prefixes, including `ms`.
- *
- * @param {string} string
- * @return {string}
- */
-function hyphenate(string) {
-  return string.replace(_uppercasePattern, '-$1').toLowerCase();
-}
-
-module.exports = hyphenate;
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var containsNode = __webpack_require__(35);
-
-/**
- * Gets an element's bounding rect in pixels relative to the viewport.
- *
- * @param {DOMElement} elem
- * @return {object}
- */
-function getElementRect(elem) {
-  var docElem = elem.ownerDocument.documentElement;
-
-  // FF 2, Safari 3 and Opera 9.5- do not support getBoundingClientRect().
-  // IE9- will throw if the element is not in the document.
-  if (!('getBoundingClientRect' in elem) || !containsNode(docElem, elem)) {
-    return {
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0
-    };
-  }
-
-  // Subtracts clientTop/Left because IE8- added a 2px border to the
-  // <html> element (see http://fburl.com/1493213). IE 7 in
-  // Quicksmode does not report clientLeft/clientTop so there
-  // will be an unaccounted offset of 2px when in quirksmode
-  var rect = elem.getBoundingClientRect();
-
-  return {
-    left: Math.round(rect.left) - docElem.clientLeft,
-    right: Math.round(rect.right) - docElem.clientLeft,
-    top: Math.round(rect.top) - docElem.clientTop,
-    bottom: Math.round(rect.bottom) - docElem.clientTop
-  };
-}
-
-module.exports = getElementRect;
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-var isWebkit = typeof navigator !== 'undefined' && navigator.userAgent.indexOf('AppleWebKit') > -1;
-
-/**
- * Gets the element with the document scroll properties such as `scrollLeft` and
- * `scrollHeight`. This may differ across different browsers.
- *
- * NOTE: The return value can be null if the DOM is not yet ready.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
- */
-function getDocumentScrollElement(doc) {
-  doc = doc || document;
-  if (doc.scrollingElement) {
-    return doc.scrollingElement;
-  }
-  return !isWebkit && doc.compatMode === 'CSS1Compat' ? doc.documentElement : doc.body;
-}
-
-module.exports = getDocumentScrollElement;
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-/**
- * Gets the scroll position of the supplied element or window.
- *
- * The return values are unbounded, unlike `getScrollPosition`. This means they
- * may be negative or exceed the element boundaries (which is possible using
- * inertial scrolling).
- *
- * @param {DOMWindow|DOMElement} scrollable
- * @return {object} Map with `x` and `y` keys.
- */
-
-function getUnboundedScrollPosition(scrollable) {
-  if (scrollable.Window && scrollable instanceof scrollable.Window) {
-    return {
-      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
-      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
-    };
-  }
-  return {
-    x: scrollable.scrollLeft,
-    y: scrollable.scrollTop
-  };
-}
-
-module.exports = getUnboundedScrollPosition;
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @format
- * 
- */
-
-
-
-var _assign = __webpack_require__(3);
-
-var _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var DraftEditorBlock = __webpack_require__(54);
-var DraftOffsetKey = __webpack_require__(15);
-var EditorState = __webpack_require__(2);
-var React = __webpack_require__(9);
-
-var cx = __webpack_require__(14);
-var joinClasses = __webpack_require__(107);
-var nullthrows = __webpack_require__(8);
-
-/**
- * Provide default styling for list items. This way, lists will be styled with
- * proper counters and indentation even if the caller does not specify
- * their own styling at all. If more than five levels of nesting are needed,
- * the necessary CSS classes can be provided via `blockStyleFn` configuration.
- */
-var getListItemClasses = function getListItemClasses(type, depth, shouldResetCount, direction) {
-  return cx({
-    'public/DraftStyleDefault/unorderedListItem': type === 'unordered-list-item',
-    'public/DraftStyleDefault/orderedListItem': type === 'ordered-list-item',
-    'public/DraftStyleDefault/reset': shouldResetCount,
-    'public/DraftStyleDefault/depth0': depth === 0,
-    'public/DraftStyleDefault/depth1': depth === 1,
-    'public/DraftStyleDefault/depth2': depth === 2,
-    'public/DraftStyleDefault/depth3': depth === 3,
-    'public/DraftStyleDefault/depth4': depth >= 4,
-    'public/DraftStyleDefault/listLTR': direction === 'LTR',
-    'public/DraftStyleDefault/listRTL': direction === 'RTL'
-  });
-};
-
-/**
- * `DraftEditorContents` is the container component for all block components
- * rendered for a `DraftEditor`. It is optimized to aggressively avoid
- * re-rendering blocks whenever possible.
- *
- * This component is separate from `DraftEditor` because certain props
- * (for instance, ARIA props) must be allowed to update without affecting
- * the contents of the editor.
- */
-
-var DraftEditorContents = function (_React$Component) {
-  _inherits(DraftEditorContents, _React$Component);
-
-  function DraftEditorContents() {
-    _classCallCheck(this, DraftEditorContents);
-
-    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
-  }
-
-  DraftEditorContents.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps) {
-    var prevEditorState = this.props.editorState;
-    var nextEditorState = nextProps.editorState;
-
-    var prevDirectionMap = prevEditorState.getDirectionMap();
-    var nextDirectionMap = nextEditorState.getDirectionMap();
-
-    // Text direction has changed for one or more blocks. We must re-render.
-    if (prevDirectionMap !== nextDirectionMap) {
-      return true;
-    }
-
-    var didHaveFocus = prevEditorState.getSelection().getHasFocus();
-    var nowHasFocus = nextEditorState.getSelection().getHasFocus();
-
-    if (didHaveFocus !== nowHasFocus) {
-      return true;
-    }
-
-    var nextNativeContent = nextEditorState.getNativelyRenderedContent();
-
-    var wasComposing = prevEditorState.isInCompositionMode();
-    var nowComposing = nextEditorState.isInCompositionMode();
-
-    // If the state is unchanged or we're currently rendering a natively
-    // rendered state, there's nothing new to be done.
-    if (prevEditorState === nextEditorState || nextNativeContent !== null && nextEditorState.getCurrentContent() === nextNativeContent || wasComposing && nowComposing) {
-      return false;
-    }
-
-    var prevContent = prevEditorState.getCurrentContent();
-    var nextContent = nextEditorState.getCurrentContent();
-    var prevDecorator = prevEditorState.getDecorator();
-    var nextDecorator = nextEditorState.getDecorator();
-    return wasComposing !== nowComposing || prevContent !== nextContent || prevDecorator !== nextDecorator || nextEditorState.mustForceSelection();
-  };
-
-  DraftEditorContents.prototype.render = function render() {
-    var _props = this.props,
-        blockRenderMap = _props.blockRenderMap,
-        blockRendererFn = _props.blockRendererFn,
-        blockStyleFn = _props.blockStyleFn,
-        customStyleMap = _props.customStyleMap,
-        customStyleFn = _props.customStyleFn,
-        editorState = _props.editorState,
-        editorKey = _props.editorKey,
-        textDirectionality = _props.textDirectionality;
-
-
-    var content = editorState.getCurrentContent();
-    var selection = editorState.getSelection();
-    var forceSelection = editorState.mustForceSelection();
-    var decorator = editorState.getDecorator();
-    var directionMap = nullthrows(editorState.getDirectionMap());
-
-    var blocksAsArray = content.getBlocksAsArray();
-    var processedBlocks = [];
-
-    var currentDepth = null;
-    var lastWrapperTemplate = null;
-
-    for (var ii = 0; ii < blocksAsArray.length; ii++) {
-      var _block = blocksAsArray[ii];
-      var key = _block.getKey();
-      var blockType = _block.getType();
-
-      var customRenderer = blockRendererFn(_block);
-      var CustomComponent = void 0,
-          customProps = void 0,
-          customEditable = void 0;
-      if (customRenderer) {
-        CustomComponent = customRenderer.component;
-        customProps = customRenderer.props;
-        customEditable = customRenderer.editable;
-      }
-
-      var direction = textDirectionality ? textDirectionality : directionMap.get(key);
-      var offsetKey = DraftOffsetKey.encode(key, 0, 0);
-      var componentProps = {
-        contentState: content,
-        block: _block,
-        blockProps: customProps,
-        blockStyleFn: blockStyleFn,
-        customStyleMap: customStyleMap,
-        customStyleFn: customStyleFn,
-        decorator: decorator,
-        direction: direction,
-        forceSelection: forceSelection,
-        key: key,
-        offsetKey: offsetKey,
-        selection: selection,
-        tree: editorState.getBlockTree(key)
-      };
-
-      var configForType = blockRenderMap.get(blockType) || blockRenderMap.get('unstyled');
-      var wrapperTemplate = configForType.wrapper;
-
-      var Element = configForType.element || blockRenderMap.get('unstyled').element;
-
-      var depth = _block.getDepth();
-      var className = '';
-      if (blockStyleFn) {
-        className = blockStyleFn(_block);
-      }
-
-      // List items are special snowflakes, since we handle nesting and
-      // counters manually.
-      if (Element === 'li') {
-        var shouldResetCount = lastWrapperTemplate !== wrapperTemplate || currentDepth === null || depth > currentDepth;
-        className = joinClasses(className, getListItemClasses(blockType, depth, shouldResetCount, direction));
-      }
-
-      var Component = CustomComponent || DraftEditorBlock;
-      var childProps = {
-        className: className,
-        'data-block': true,
-        'data-editor': editorKey,
-        'data-offset-key': offsetKey,
-        key: key
-      };
-      if (customEditable !== undefined) {
-        childProps = _extends({}, childProps, {
-          contentEditable: customEditable,
-          suppressContentEditableWarning: true
-        });
-      }
-
-      var child = React.createElement(Element, childProps, React.createElement(Component, componentProps));
-
-      processedBlocks.push({
-        block: child,
-        wrapperTemplate: wrapperTemplate,
-        key: key,
-        offsetKey: offsetKey
-      });
-
-      if (wrapperTemplate) {
-        currentDepth = _block.getDepth();
-      } else {
-        currentDepth = null;
-      }
-      lastWrapperTemplate = wrapperTemplate;
-    }
-
-    // Group contiguous runs of blocks that have the same wrapperTemplate
-    var outputBlocks = [];
-    for (var _ii = 0; _ii < processedBlocks.length;) {
-      var info = processedBlocks[_ii];
-      if (info.wrapperTemplate) {
-        var blocks = [];
-        do {
-          blocks.push(processedBlocks[_ii].block);
-          _ii++;
-        } while (_ii < processedBlocks.length && processedBlocks[_ii].wrapperTemplate === info.wrapperTemplate);
-        var wrapperElement = React.cloneElement(info.wrapperTemplate, {
-          key: info.key + '-wrap',
-          'data-offset-key': info.offsetKey
-        }, blocks);
-        outputBlocks.push(wrapperElement);
-      } else {
-        outputBlocks.push(info.block);
-        _ii++;
-      }
-    }
-
-    return React.createElement(
-      'div',
-      { 'data-contents': 'true' },
-      outputBlocks
-    );
-  };
-
-  return DraftEditorContents;
-}(React.Component);
-
-module.exports = DraftEditorContents;
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks static-only
- */
-
-
-
-/**
- * Combines multiple className strings into one.
- * http://jsperf.com/joinclasses-args-vs-array
- *
- * @param {...?string} className
- * @return {string}
- */
-
-function joinClasses(className /*, ... */) {
-  if (!className) {
-    className = '';
-  }
-  var nextClass = void 0;
-  var argLength = arguments.length;
-  if (argLength > 1) {
-    for (var ii = 1; ii < argLength; ii++) {
-      nextClass = arguments[ii];
-      if (nextClass) {
-        className = (className ? className + ' ' : '') + nextClass;
-      }
-    }
-  }
-  return className;
-}
-
-module.exports = joinClasses;
-
-/***/ }),
-/* 108 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @format
- * 
- */
-
-
-
-var DataTransfer = __webpack_require__(55);
-var DraftModifier = __webpack_require__(5);
-var EditorState = __webpack_require__(2);
-
-var findAncestorOffsetKey = __webpack_require__(37);
-var getTextContentFromFiles = __webpack_require__(57);
-var getUpdatedSelectionState = __webpack_require__(58);
-var isEventHandled = __webpack_require__(22);
-var nullthrows = __webpack_require__(8);
-
-/**
- * Get a SelectionState for the supplied mouse event.
- */
-function getSelectionForEvent(event, editorState) {
-  var node = null;
-  var offset = null;
-
-  /* $FlowFixMe(>=0.68.0 site=www,mobile) This comment suppresses an error
-   * found when Flow v0.68 was deployed. To see the error delete this comment
-   * and run Flow. */
-  if (typeof document.caretRangeFromPoint === 'function') {
-    var dropRange = document.caretRangeFromPoint(event.x, event.y);
-    node = dropRange.startContainer;
-    offset = dropRange.startOffset;
-  } else if (event.rangeParent) {
-    node = event.rangeParent;
-    offset = event.rangeOffset;
-  } else {
-    return null;
-  }
-
-  node = nullthrows(node);
-  offset = nullthrows(offset);
-  var offsetKey = nullthrows(findAncestorOffsetKey(node));
-
-  return getUpdatedSelectionState(editorState, offsetKey, offset, offsetKey, offset);
-}
-
-var DraftEditorDragHandler = {
-  /**
-   * Drag originating from input terminated.
-   */
-  onDragEnd: function onDragEnd(editor) {
-    editor.exitCurrentMode();
-  },
-
-  /**
-   * Handle data being dropped.
-   */
-  onDrop: function onDrop(editor, e) {
-    var data = new DataTransfer(e.nativeEvent.dataTransfer);
-
-    var editorState = editor._latestEditorState;
-    var dropSelection = getSelectionForEvent(e.nativeEvent, editorState);
-
-    e.preventDefault();
-    editor.exitCurrentMode();
-
-    if (dropSelection == null) {
-      return;
-    }
-
-    var files = data.getFiles();
-    if (files.length > 0) {
-      if (editor.props.handleDroppedFiles && isEventHandled(editor.props.handleDroppedFiles(dropSelection, files))) {
-        return;
-      }
-
-      getTextContentFromFiles(files, function (fileText) {
-        fileText && editor.update(insertTextAtSelection(editorState, dropSelection, fileText));
-      });
-      return;
-    }
-
-    var dragType = editor._internalDrag ? 'internal' : 'external';
-    if (editor.props.handleDrop && isEventHandled(editor.props.handleDrop(dropSelection, data, dragType))) {
-      return;
-    }
-
-    if (editor._internalDrag) {
-      editor.update(moveText(editorState, dropSelection));
-      return;
-    }
-
-    editor.update(insertTextAtSelection(editorState, dropSelection, data.getText()));
-  }
-};
-
-function moveText(editorState, targetSelection) {
-  var newContentState = DraftModifier.moveText(editorState.getCurrentContent(), editorState.getSelection(), targetSelection);
-  return EditorState.push(editorState, newContentState, 'insert-fragment');
-}
-
-/**
- * Insert text at a specified selection.
- */
-function insertTextAtSelection(editorState, selection, text) {
-  var newContentState = DraftModifier.insertText(editorState.getCurrentContent(), selection, text, editorState.getCurrentInlineStyle());
-  return EditorState.push(editorState, newContentState, 'insert-fragment');
-}
-
-module.exports = DraftEditorDragHandler;
-
-/***/ }),
-/* 109 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-var PhotosMimeType = {
-  isImage: function isImage(mimeString) {
-    return getParts(mimeString)[0] === 'image';
-  },
-  isJpeg: function isJpeg(mimeString) {
-    var parts = getParts(mimeString);
-    return PhotosMimeType.isImage(mimeString) && (
-    // see http://fburl.com/10972194
-    parts[1] === 'jpeg' || parts[1] === 'pjpeg');
-  }
-};
-
-function getParts(mimeString) {
-  return mimeString.split('/');
-}
-
-module.exports = PhotosMimeType;
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-var invariant = __webpack_require__(1);
-
-/**
- * Convert array-like objects to arrays.
- *
- * This API assumes the caller knows the contents of the data type. For less
- * well defined inputs use createArrayFromMixed.
- *
- * @param {object|function|filelist} obj
- * @return {array}
- */
-function toArray(obj) {
-  var length = obj.length;
-
-  // Some browsers builtin objects can report typeof 'function' (e.g. NodeList
-  // in old versions of Safari).
-  !(!Array.isArray(obj) && (typeof obj === 'object' || typeof obj === 'function')) ?  true ? invariant(false, 'toArray: Array-like object expected') : invariant(false) : void 0;
-
-  !(typeof length === 'number') ?  true ? invariant(false, 'toArray: Object needs a length property') : invariant(false) : void 0;
-
-  !(length === 0 || length - 1 in obj) ?  true ? invariant(false, 'toArray: Object should have keys for indices') : invariant(false) : void 0;
-
-  !(typeof obj.callee !== 'function') ?  true ? invariant(false, 'toArray: Object can\'t be `arguments`. Use rest params ' + '(function(...args) {}) or Array.from() instead.') : invariant(false) : void 0;
-
-  // Old IE doesn't give collections access to hasOwnProperty. Assume inputs
-  // without method will throw during the slice call and skip straight to the
-  // fallback.
-  if (obj.hasOwnProperty) {
-    try {
-      return Array.prototype.slice.call(obj);
-    } catch (e) {
-      // IE < 9 does not support Array#slice on collections objects
-    }
-  }
-
-  // Fall back to copying key by key. This assumes all keys have a value,
-  // so will not preserve sparsely populated inputs.
-  var ret = Array(length);
-  for (var ii = 0; ii < length; ii++) {
-    ret[ii] = obj[ii];
-  }
-  return ret;
-}
-
-/**
- * Perform a heuristic test to determine if an object is "array-like".
- *
- *   A monk asked Joshu, a Zen master, "Has a dog Buddha nature?"
- *   Joshu replied: "Mu."
- *
- * This function determines if its argument has "array nature": it returns
- * true if the argument is an actual array, an `arguments' object, or an
- * HTMLCollection (e.g. node.childNodes or node.getElementsByTagName()).
- *
- * It will return false for other array-like objects like Filelist.
- *
- * @param {*} obj
- * @return {boolean}
- */
-function hasArrayNature(obj) {
-  return (
-    // not null/false
-    !!obj && (
-    // arrays are objects, NodeLists are functions in Safari
-    typeof obj == 'object' || typeof obj == 'function') &&
-    // quacks like an array
-    'length' in obj &&
-    // not window
-    !('setInterval' in obj) &&
-    // no DOM node should be considered an array-like
-    // a 'select' element has 'length' and 'item' properties on IE8
-    typeof obj.nodeType != 'number' && (
-    // a real array
-    Array.isArray(obj) ||
-    // arguments
-    'callee' in obj ||
-    // HTMLCollection/NodeList
-    'item' in obj)
-  );
-}
-
-/**
- * Ensure that the argument is an array by wrapping it in an array if it is not.
- * Creates a copy of the argument if it is already an array.
- *
- * This is mostly useful idiomatically:
- *
- *   var createArrayFromMixed = require('createArrayFromMixed');
- *
- *   function takesOneOrMoreThings(things) {
- *     things = createArrayFromMixed(things);
- *     ...
- *   }
- *
- * This allows you to treat `things' as an array, but accept scalars in the API.
- *
- * If you need to convert an array-like object, like `arguments`, into an array
- * use toArray instead.
- *
- * @param {*} obj
- * @return {array}
- */
-function createArrayFromMixed(obj) {
-  if (!hasArrayNature(obj)) {
-    return [obj];
-  } else if (Array.isArray(obj)) {
-    return obj.slice();
-  } else {
-    return toArray(obj);
-  }
-}
-
-module.exports = createArrayFromMixed;
-
-/***/ }),
-/* 111 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @format
- *  strict-local
- */
-
-
-
-var onBeforeInput = __webpack_require__(112);
-var onBlur = __webpack_require__(122);
-var onCompositionStart = __webpack_require__(123);
-var onCopy = __webpack_require__(124);
-var onCut = __webpack_require__(125);
-var onDragOver = __webpack_require__(126);
-var onDragStart = __webpack_require__(127);
-var onFocus = __webpack_require__(128);
-var onInput = __webpack_require__(129);
-var onKeyDown = __webpack_require__(130);
-var onPaste = __webpack_require__(144);
-var onSelect = __webpack_require__(148);
-
-var DraftEditorEditHandler = {
-  onBeforeInput: onBeforeInput,
-  onBlur: onBlur,
-  onCompositionStart: onCompositionStart,
-  onCopy: onCopy,
-  onCut: onCut,
-  onDragOver: onDragOver,
-  onDragStart: onDragStart,
-  onFocus: onFocus,
-  onInput: onInput,
-  onKeyDown: onKeyDown,
-  onPaste: onPaste,
-  onSelect: onSelect
-};
-
-module.exports = DraftEditorEditHandler;
-
-/***/ }),
-/* 112 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * @format
- *  strict-local
- */
-
-
-
-var DraftModifier = __webpack_require__(5);
-var EditorState = __webpack_require__(2);
-var UserAgent = __webpack_require__(12);
-
-var getEntityKeyForSelection = __webpack_require__(34);
-var isEventHandled = __webpack_require__(22);
-var isSelectionAtLeafStart = __webpack_require__(47);
-var nullthrows = __webpack_require__(8);
-var setImmediate = __webpack_require__(119);
-
-// When nothing is focused, Firefox regards two characters, `'` and `/`, as
-// commands that should open and focus the "quickfind" search bar. This should
-// *never* happen while a contenteditable is focused, but as of v28, it
-// sometimes does, even when the keypress event target is the contenteditable.
-// This breaks the input. Special case these characters to ensure that when
-// they are typed, we prevent default on the event to make sure not to
-// trigger quickfind.
-var FF_QUICKFIND_CHAR = "'";
-var FF_QUICKFIND_LINK_CHAR = '/';
-var isFirefox = UserAgent.isBrowser('Firefox');
-
-function mustPreventDefaultForCharacter(character) {
-  return isFirefox && (character == FF_QUICKFIND_CHAR || character == FF_QUICKFIND_LINK_CHAR);
-}
-
-/**
- * Replace the current selection with the specified text string, with the
- * inline style and entity key applied to the newly inserted text.
- */
-function replaceText(editorState, text, inlineStyle, entityKey, forceSelection) {
-  var contentState = DraftModifier.replaceText(editorState.getCurrentContent(), editorState.getSelection(), text, inlineStyle, entityKey);
-  return EditorState.push(editorState, contentState, 'insert-characters', forceSelection);
-}
-
-/**
- * When `onBeforeInput` executes, the browser is attempting to insert a
- * character into the editor. Apply this character data to the document,
- * allowing native insertion if possible.
- *
- * Native insertion is encouraged in order to limit re-rendering and to
- * preserve spellcheck highlighting, which disappears or flashes if re-render
- * occurs on the relevant text nodes.
- */
-function editOnBeforeInput(editor, e) {
-  if (editor._pendingStateFromBeforeInput !== undefined) {
-    editor.update(editor._pendingStateFromBeforeInput);
-    editor._pendingStateFromBeforeInput = undefined;
-  }
-
-  var editorState = editor._latestEditorState;
-
-  var chars = e.data;
-
-  // In some cases (ex: IE ideographic space insertion) no character data
-  // is provided. There's nothing to do when this happens.
-  if (!chars) {
-    return;
-  }
-
-  // Allow the top-level component to handle the insertion manually. This is
-  // useful when triggering interesting behaviors for a character insertion,
-  // Simple examples: replacing a raw text ':)' with a smile emoji or image
-  // decorator, or setting a block to be a list item after typing '- ' at the
-  // start of the block.
-  if (editor.props.handleBeforeInput && isEventHandled(editor.props.handleBeforeInput(chars, editorState, e.timeStamp))) {
-    e.preventDefault();
-    return;
-  }
-
-  // If selection is collapsed, conditionally allow native behavior. This
-  // reduces re-renders and preserves spellcheck highlighting. If the selection
-  // is not collapsed, we will re-render.
-  var selection = editorState.getSelection();
-  var selectionStart = selection.getStartOffset();
-  var anchorKey = selection.getAnchorKey();
-
-  if (!selection.isCollapsed()) {
-    e.preventDefault();
-    editor.update(replaceText(editorState, chars, editorState.getCurrentInlineStyle(), getEntityKeyForSelection(editorState.getCurrentContent(), editorState.getSelection()), true));
-    return;
-  }
-
-  var newEditorState = replaceText(editorState, chars, editorState.getCurrentInlineStyle(), getEntityKeyForSelection(editorState.getCurrentContent(), editorState.getSelection()), false);
-
-  // Bunch of different cases follow where we need to prevent native insertion.
-  var mustPreventNative = false;
-  if (!mustPreventNative) {
-    // Browsers tend to insert text in weird places in the DOM when typing at
-    // the start of a leaf, so we'll handle it ourselves.
-    mustPreventNative = isSelectionAtLeafStart(editor._latestCommittedEditorState);
-  }
-  if (!mustPreventNative) {
-    // Chrome will also split up a node into two pieces if it contains a Tab
-    // char, for no explicable reason. Seemingly caused by this commit:
-    // https://chromium.googlesource.com/chromium/src/+/013ac5eaf3%5E%21/
-    var nativeSelection = global.getSelection();
-    // Selection is necessarily collapsed at this point due to earlier check.
-    if (nativeSelection.anchorNode && nativeSelection.anchorNode.nodeType === Node.TEXT_NODE) {
-      // See isTabHTMLSpanElement in chromium EditingUtilities.cpp.
-      var parentNode = nativeSelection.anchorNode.parentNode;
-      mustPreventNative = parentNode.nodeName === 'SPAN' && parentNode.firstChild.nodeType === Node.TEXT_NODE && parentNode.firstChild.nodeValue.indexOf('\t') !== -1;
-    }
-  }
-  if (!mustPreventNative) {
-    // Let's say we have a decorator that highlights hashtags. In many cases
-    // we need to prevent native behavior and rerender ourselves --
-    // particularly, any case *except* where the inserted characters end up
-    // anywhere except exactly where you put them.
-    //
-    // Using [] to denote a decorated leaf, some examples:
-    //
-    // 1. 'hi #' and append 'f'
-    // desired rendering: 'hi [#f]'
-    // native rendering would be: 'hi #f' (incorrect)
-    //
-    // 2. 'x [#foo]' and insert '#' before 'f'
-    // desired rendering: 'x #[#foo]'
-    // native rendering would be: 'x [##foo]' (incorrect)
-    //
-    // 3. '[#foobar]' and insert ' ' between 'foo' and 'bar'
-    // desired rendering: '[#foo] bar'
-    // native rendering would be: '[#foo bar]' (incorrect)
-    //
-    // 4. '[#foo]' and delete '#' [won't use this beforeinput codepath though]
-    // desired rendering: 'foo'
-    // native rendering would be: '[foo]' (incorrect)
-    //
-    // 5. '[#foo]' and append 'b'
-    // desired rendering: '[#foob]'
-    // native rendering would be: '[#foob]' (native insertion is OK here)
-    //
-    // It is safe to allow native insertion if and only if the full list of
-    // decorator ranges matches what we expect native insertion to give. We
-    // don't need to compare the content because the only possible mutation
-    // to consider here is inserting plain text and decorators can't affect
-    // text content.
-    var oldBlockTree = editorState.getBlockTree(anchorKey);
-    var newBlockTree = newEditorState.getBlockTree(anchorKey);
-    mustPreventNative = oldBlockTree.size !== newBlockTree.size || oldBlockTree.zip(newBlockTree).some(function (_ref) {
-      var oldLeafSet = _ref[0],
-          newLeafSet = _ref[1];
-
-      // selectionStart is guaranteed to be selectionEnd here
-      var oldStart = oldLeafSet.get('start');
-      var adjustedStart = oldStart + (oldStart >= selectionStart ? chars.length : 0);
-      var oldEnd = oldLeafSet.get('end');
-      var adjustedEnd = oldEnd + (oldEnd >= selectionStart ? chars.length : 0);
-      return (
-        // Different decorators
-        oldLeafSet.get('decoratorKey') !== newLeafSet.get('decoratorKey') ||
-        // Different number of inline styles
-        oldLeafSet.get('leaves').size !== newLeafSet.get('leaves').size ||
-        // Different effective decorator position
-        adjustedStart !== newLeafSet.get('start') || adjustedEnd !== newLeafSet.get('end')
-      );
-    });
-  }
-  if (!mustPreventNative) {
-    mustPreventNative = mustPreventDefaultForCharacter(chars);
-  }
-  if (!mustPreventNative) {
-    mustPreventNative = nullthrows(newEditorState.getDirectionMap()).get(anchorKey) !== nullthrows(editorState.getDirectionMap()).get(anchorKey);
-  }
-
-  if (mustPreventNative) {
-    e.preventDefault();
-    newEditorState = EditorState.set(newEditorState, {
-      forceSelection: true
-    });
-    editor.update(newEditorState);
-    return;
-  }
-
-  // We made it all the way! Let the browser do its thing and insert the char.
-  newEditorState = EditorState.set(newEditorState, {
-    nativelyRenderedContent: newEditorState.getCurrentContent()
-  });
-  // The native event is allowed to occur. To allow user onChange handlers to
-  // change the inserted text, we wait until the text is actually inserted
-  // before we actually update our state. That way when we rerender, the text
-  // we see in the DOM will already have been inserted properly.
-  editor._pendingStateFromBeforeInput = newEditorState;
-  setImmediate(function () {
-    if (editor._pendingStateFromBeforeInput !== undefined) {
-      editor.update(editor._pendingStateFromBeforeInput);
-      editor._pendingStateFromBeforeInput = undefined;
-    }
-  });
-}
-
-module.exports = editOnBeforeInput;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
-
-/***/ }),
-/* 113 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -12831,7 +11426,7 @@ module.exports = editOnBeforeInput;
 
 
 
-var UAParser = __webpack_require__(114);
+var UAParser = __webpack_require__(98);
 
 var UNKNOWN = 'Unknown';
 
@@ -12892,7 +11487,7 @@ var uaData = {
 module.exports = uaData;
 
 /***/ }),
-/* 114 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -13935,7 +12530,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
         exports.UAParser = UAParser;
     } else {
         // requirejs env (optional)
-        if ("function" === FUNC_TYPE && __webpack_require__(115)) {
+        if ("function" === FUNC_TYPE && __webpack_require__(99)) {
             !(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
                 return UAParser;
             }).call(exports, __webpack_require__, exports, module),
@@ -13971,7 +12566,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 /***/ }),
-/* 115 */
+/* 99 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -13980,7 +12575,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 116 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14366,7 +12961,7 @@ var VersionRange = {
 module.exports = VersionRange;
 
 /***/ }),
-/* 117 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14420,7 +13015,7 @@ function mapObject(object, callback, context) {
 module.exports = mapObject;
 
 /***/ }),
-/* 118 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14453,6 +13048,1419 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @format
+ * 
+ */
+
+
+
+var DraftEffects = __webpack_require__(49);
+var DraftJsDebugLogging = __webpack_require__(50);
+
+var containsNode = __webpack_require__(35);
+var getActiveElement = __webpack_require__(51);
+var invariant = __webpack_require__(1);
+
+function getAnonymizedDOM(node, getNodeLabels) {
+  if (!node) {
+    return '[empty]';
+  }
+
+  var anonymized = anonymizeTextWithin(node, getNodeLabels);
+  if (anonymized.nodeType === Node.TEXT_NODE) {
+    return anonymized.textContent;
+  }
+
+  !(anonymized instanceof Element) ?  true ? invariant(false, 'Node must be an Element if it is not a text node.') : invariant(false) : void 0;
+  return anonymized.outerHTML;
+}
+
+function anonymizeTextWithin(node, getNodeLabels) {
+  var labels = getNodeLabels !== undefined ? getNodeLabels(node) : [];
+
+  if (node.nodeType === Node.TEXT_NODE) {
+    var length = node.textContent.length;
+    return document.createTextNode('[text ' + length + (labels.length ? ' | ' + labels.join(', ') : '') + ']');
+  }
+
+  var clone = node.cloneNode();
+  if (clone.nodeType === 1 && labels.length) {
+    clone.setAttribute('data-labels', labels.join(', '));
+  }
+  var childNodes = node.childNodes;
+  for (var ii = 0; ii < childNodes.length; ii++) {
+    clone.appendChild(anonymizeTextWithin(childNodes[ii], getNodeLabels));
+  }
+
+  return clone;
+}
+
+function getAnonymizedEditorDOM(node, getNodeLabels) {
+  // grabbing the DOM content of the Draft editor
+  var currentNode = node;
+  while (currentNode) {
+    if (currentNode instanceof Element && currentNode.hasAttribute('contenteditable')) {
+      // found the Draft editor container
+      return getAnonymizedDOM(currentNode, getNodeLabels);
+    } else {
+      currentNode = currentNode.parentNode;
+    }
+  }
+  return 'Could not find contentEditable parent of node';
+}
+
+function getNodeLength(node) {
+  return node.nodeValue === null ? node.childNodes.length : node.nodeValue.length;
+}
+
+/**
+ * In modern non-IE browsers, we can support both forward and backward
+ * selections.
+ *
+ * Note: IE10+ supports the Selection object, but it does not support
+ * the `extend` method, which means that even in modern IE, it's not possible
+ * to programatically create a backward selection. Thus, for all IE
+ * versions, we use the old IE API to create our selections.
+ */
+function setDraftEditorSelection(selectionState, node, blockKey, nodeStart, nodeEnd) {
+  // It's possible that the editor has been removed from the DOM but
+  // our selection code doesn't know it yet. Forcing selection in
+  // this case may lead to errors, so just bail now.
+  if (!containsNode(document.documentElement, node)) {
+    return;
+  }
+
+  var selection = global.getSelection();
+  var anchorKey = selectionState.getAnchorKey();
+  var anchorOffset = selectionState.getAnchorOffset();
+  var focusKey = selectionState.getFocusKey();
+  var focusOffset = selectionState.getFocusOffset();
+  var isBackward = selectionState.getIsBackward();
+
+  // IE doesn't support backward selection. Swap key/offset pairs.
+  if (!selection.extend && isBackward) {
+    var tempKey = anchorKey;
+    var tempOffset = anchorOffset;
+    anchorKey = focusKey;
+    anchorOffset = focusOffset;
+    focusKey = tempKey;
+    focusOffset = tempOffset;
+    isBackward = false;
+  }
+
+  var hasAnchor = anchorKey === blockKey && nodeStart <= anchorOffset && nodeEnd >= anchorOffset;
+
+  var hasFocus = focusKey === blockKey && nodeStart <= focusOffset && nodeEnd >= focusOffset;
+
+  // If the selection is entirely bound within this node, set the selection
+  // and be done.
+  if (hasAnchor && hasFocus) {
+    selection.removeAllRanges();
+    addPointToSelection(selection, node, anchorOffset - nodeStart, selectionState);
+    addFocusToSelection(selection, node, focusOffset - nodeStart, selectionState);
+    return;
+  }
+
+  if (!isBackward) {
+    // If the anchor is within this node, set the range start.
+    if (hasAnchor) {
+      selection.removeAllRanges();
+      addPointToSelection(selection, node, anchorOffset - nodeStart, selectionState);
+    }
+
+    // If the focus is within this node, we can assume that we have
+    // already set the appropriate start range on the selection, and
+    // can simply extend the selection.
+    if (hasFocus) {
+      addFocusToSelection(selection, node, focusOffset - nodeStart, selectionState);
+    }
+  } else {
+    // If this node has the focus, set the selection range to be a
+    // collapsed range beginning here. Later, when we encounter the anchor,
+    // we'll use this information to extend the selection.
+    if (hasFocus) {
+      selection.removeAllRanges();
+      addPointToSelection(selection, node, focusOffset - nodeStart, selectionState);
+    }
+
+    // If this node has the anchor, we may assume that the correct
+    // focus information is already stored on the selection object.
+    // We keep track of it, reset the selection range, and extend it
+    // back to the focus point.
+    if (hasAnchor) {
+      var storedFocusNode = selection.focusNode;
+      var storedFocusOffset = selection.focusOffset;
+
+      selection.removeAllRanges();
+      addPointToSelection(selection, node, anchorOffset - nodeStart, selectionState);
+      addFocusToSelection(selection, storedFocusNode, storedFocusOffset, selectionState);
+    }
+  }
+}
+
+/**
+ * Extend selection towards focus point.
+ */
+function addFocusToSelection(selection, node, offset, selectionState) {
+  var activeElement = getActiveElement();
+  if (selection.extend && containsNode(activeElement, node)) {
+    // If `extend` is called while another element has focus, an error is
+    // thrown. We therefore disable `extend` if the active element is somewhere
+    // other than the node we are selecting. This should only occur in Firefox,
+    // since it is the only browser to support multiple selections.
+    // See https://bugzilla.mozilla.org/show_bug.cgi?id=921444.
+
+    // logging to catch bug that is being reported in t16250795
+    if (offset > getNodeLength(node)) {
+      // the call to 'selection.extend' is about to throw
+      DraftJsDebugLogging.logSelectionStateFailure({
+        anonymizedDom: getAnonymizedEditorDOM(node),
+        extraParams: JSON.stringify({ offset: offset }),
+        selectionState: JSON.stringify(selectionState.toJS())
+      });
+    }
+
+    // logging to catch bug that is being reported in t18110632
+    var nodeWasFocus = node === selection.focusNode;
+    try {
+      selection.extend(node, offset);
+    } catch (e) {
+      DraftJsDebugLogging.logSelectionStateFailure({
+        anonymizedDom: getAnonymizedEditorDOM(node, function (n) {
+          var labels = [];
+          if (n === activeElement) {
+            labels.push('active element');
+          }
+          if (n === selection.anchorNode) {
+            labels.push('selection anchor node');
+          }
+          if (n === selection.focusNode) {
+            labels.push('selection focus node');
+          }
+          return labels;
+        }),
+        extraParams: JSON.stringify({
+          activeElementName: activeElement ? activeElement.nodeName : null,
+          nodeIsFocus: node === selection.focusNode,
+          nodeWasFocus: nodeWasFocus,
+          selectionRangeCount: selection.rangeCount,
+          selectionAnchorNodeName: selection.anchorNode ? selection.anchorNode.nodeName : null,
+          selectionAnchorOffset: selection.anchorOffset,
+          selectionFocusNodeName: selection.focusNode ? selection.focusNode.nodeName : null,
+          selectionFocusOffset: selection.focusOffset,
+          message: e ? '' + e : null,
+          offset: offset
+        }, null, 2),
+        selectionState: JSON.stringify(selectionState.toJS(), null, 2)
+      });
+      // allow the error to be thrown -
+      // better than continuing in a broken state
+      throw e;
+    }
+  } else {
+    // IE doesn't support extend. This will mean no backward selection.
+    // Extract the existing selection range and add focus to it.
+    // Additionally, clone the selection range. IE11 throws an
+    // InvalidStateError when attempting to access selection properties
+    // after the range is detached.
+    var range = selection.getRangeAt(0);
+    range.setEnd(node, offset);
+    selection.addRange(range.cloneRange());
+  }
+}
+
+function addPointToSelection(selection, node, offset, selectionState) {
+  var range = document.createRange();
+  // logging to catch bug that is being reported in t16250795
+  if (offset > getNodeLength(node)) {
+    // in this case we know that the call to 'range.setStart' is about to throw
+    DraftJsDebugLogging.logSelectionStateFailure({
+      anonymizedDom: getAnonymizedEditorDOM(node),
+      extraParams: JSON.stringify({ offset: offset }),
+      selectionState: JSON.stringify(selectionState.toJS())
+    });
+    DraftEffects.handleExtensionCausedError();
+  }
+  range.setStart(node, offset);
+  selection.addRange(range);
+}
+
+module.exports = setDraftEditorSelection;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var isNode = __webpack_require__(105);
+
+/**
+ * @param {*} object The object to check.
+ * @return {boolean} Whether or not the object is a DOM text node.
+ */
+function isTextNode(object) {
+  return isNode(object) && object.nodeType == 3;
+}
+
+module.exports = isTextNode;
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+/**
+ * @param {*} object The object to check.
+ * @return {boolean} Whether or not the object is a DOM node.
+ */
+function isNode(object) {
+  var doc = object ? object.ownerDocument || object : document;
+  var defaultView = doc.defaultView || window;
+  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+}
+
+module.exports = isNode;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var camelize = __webpack_require__(107);
+var hyphenate = __webpack_require__(108);
+
+function asString(value) /*?string*/{
+  return value == null ? value : String(value);
+}
+
+function getStyleProperty( /*DOMNode*/node, /*string*/name) /*?string*/{
+  var computedStyle = void 0;
+
+  // W3C Standard
+  if (window.getComputedStyle) {
+    // In certain cases such as within an iframe in FF3, this returns null.
+    computedStyle = window.getComputedStyle(node, null);
+    if (computedStyle) {
+      return asString(computedStyle.getPropertyValue(hyphenate(name)));
+    }
+  }
+  // Safari
+  if (document.defaultView && document.defaultView.getComputedStyle) {
+    computedStyle = document.defaultView.getComputedStyle(node, null);
+    // A Safari bug causes this to return null for `display: none` elements.
+    if (computedStyle) {
+      return asString(computedStyle.getPropertyValue(hyphenate(name)));
+    }
+    if (name === 'display') {
+      return 'none';
+    }
+  }
+  // Internet Explorer
+  if (node.currentStyle) {
+    if (name === 'float') {
+      return asString(node.currentStyle.cssFloat || node.currentStyle.styleFloat);
+    }
+    return asString(node.currentStyle[camelize(name)]);
+  }
+  return asString(node.style && node.style[camelize(name)]);
+}
+
+module.exports = getStyleProperty;
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var _hyphenPattern = /-(.)/g;
+
+/**
+ * Camelcases a hyphenated string, for example:
+ *
+ *   > camelize('background-color')
+ *   < "backgroundColor"
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function camelize(string) {
+  return string.replace(_hyphenPattern, function (_, character) {
+    return character.toUpperCase();
+  });
+}
+
+module.exports = camelize;
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var _uppercasePattern = /([A-Z])/g;
+
+/**
+ * Hyphenates a camelcased string, for example:
+ *
+ *   > hyphenate('backgroundColor')
+ *   < "background-color"
+ *
+ * For CSS style names, use `hyphenateStyleName` instead which works properly
+ * with all vendor prefixes, including `ms`.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+function hyphenate(string) {
+  return string.replace(_uppercasePattern, '-$1').toLowerCase();
+}
+
+module.exports = hyphenate;
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var containsNode = __webpack_require__(35);
+
+/**
+ * Gets an element's bounding rect in pixels relative to the viewport.
+ *
+ * @param {DOMElement} elem
+ * @return {object}
+ */
+function getElementRect(elem) {
+  var docElem = elem.ownerDocument.documentElement;
+
+  // FF 2, Safari 3 and Opera 9.5- do not support getBoundingClientRect().
+  // IE9- will throw if the element is not in the document.
+  if (!('getBoundingClientRect' in elem) || !containsNode(docElem, elem)) {
+    return {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    };
+  }
+
+  // Subtracts clientTop/Left because IE8- added a 2px border to the
+  // <html> element (see http://fburl.com/1493213). IE 7 in
+  // Quicksmode does not report clientLeft/clientTop so there
+  // will be an unaccounted offset of 2px when in quirksmode
+  var rect = elem.getBoundingClientRect();
+
+  return {
+    left: Math.round(rect.left) - docElem.clientLeft,
+    right: Math.round(rect.right) - docElem.clientLeft,
+    top: Math.round(rect.top) - docElem.clientTop,
+    bottom: Math.round(rect.bottom) - docElem.clientTop
+  };
+}
+
+module.exports = getElementRect;
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+
+
+var isWebkit = typeof navigator !== 'undefined' && navigator.userAgent.indexOf('AppleWebKit') > -1;
+
+/**
+ * Gets the element with the document scroll properties such as `scrollLeft` and
+ * `scrollHeight`. This may differ across different browsers.
+ *
+ * NOTE: The return value can be null if the DOM is not yet ready.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
+ */
+function getDocumentScrollElement(doc) {
+  doc = doc || document;
+  if (doc.scrollingElement) {
+    return doc.scrollingElement;
+  }
+  return !isWebkit && doc.compatMode === 'CSS1Compat' ? doc.documentElement : doc.body;
+}
+
+module.exports = getDocumentScrollElement;
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+
+
+/**
+ * Gets the scroll position of the supplied element or window.
+ *
+ * The return values are unbounded, unlike `getScrollPosition`. This means they
+ * may be negative or exceed the element boundaries (which is possible using
+ * inertial scrolling).
+ *
+ * @param {DOMWindow|DOMElement} scrollable
+ * @return {object} Map with `x` and `y` keys.
+ */
+
+function getUnboundedScrollPosition(scrollable) {
+  if (scrollable.Window && scrollable instanceof scrollable.Window) {
+    return {
+      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
+      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
+    };
+  }
+  return {
+    x: scrollable.scrollLeft,
+    y: scrollable.scrollTop
+  };
+}
+
+module.exports = getUnboundedScrollPosition;
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @format
+ * 
+ */
+
+
+
+var _assign = __webpack_require__(3);
+
+var _extends = _assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DraftEditorBlock = __webpack_require__(54);
+var DraftOffsetKey = __webpack_require__(15);
+var EditorState = __webpack_require__(2);
+var React = __webpack_require__(9);
+
+var cx = __webpack_require__(14);
+var joinClasses = __webpack_require__(113);
+var nullthrows = __webpack_require__(8);
+
+/**
+ * Provide default styling for list items. This way, lists will be styled with
+ * proper counters and indentation even if the caller does not specify
+ * their own styling at all. If more than five levels of nesting are needed,
+ * the necessary CSS classes can be provided via `blockStyleFn` configuration.
+ */
+var getListItemClasses = function getListItemClasses(type, depth, shouldResetCount, direction) {
+  return cx({
+    'public/DraftStyleDefault/unorderedListItem': type === 'unordered-list-item',
+    'public/DraftStyleDefault/orderedListItem': type === 'ordered-list-item',
+    'public/DraftStyleDefault/reset': shouldResetCount,
+    'public/DraftStyleDefault/depth0': depth === 0,
+    'public/DraftStyleDefault/depth1': depth === 1,
+    'public/DraftStyleDefault/depth2': depth === 2,
+    'public/DraftStyleDefault/depth3': depth === 3,
+    'public/DraftStyleDefault/depth4': depth >= 4,
+    'public/DraftStyleDefault/listLTR': direction === 'LTR',
+    'public/DraftStyleDefault/listRTL': direction === 'RTL'
+  });
+};
+
+/**
+ * `DraftEditorContents` is the container component for all block components
+ * rendered for a `DraftEditor`. It is optimized to aggressively avoid
+ * re-rendering blocks whenever possible.
+ *
+ * This component is separate from `DraftEditor` because certain props
+ * (for instance, ARIA props) must be allowed to update without affecting
+ * the contents of the editor.
+ */
+
+var DraftEditorContents = function (_React$Component) {
+  _inherits(DraftEditorContents, _React$Component);
+
+  function DraftEditorContents() {
+    _classCallCheck(this, DraftEditorContents);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  DraftEditorContents.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps) {
+    var prevEditorState = this.props.editorState;
+    var nextEditorState = nextProps.editorState;
+
+    var prevDirectionMap = prevEditorState.getDirectionMap();
+    var nextDirectionMap = nextEditorState.getDirectionMap();
+
+    // Text direction has changed for one or more blocks. We must re-render.
+    if (prevDirectionMap !== nextDirectionMap) {
+      return true;
+    }
+
+    var didHaveFocus = prevEditorState.getSelection().getHasFocus();
+    var nowHasFocus = nextEditorState.getSelection().getHasFocus();
+
+    if (didHaveFocus !== nowHasFocus) {
+      return true;
+    }
+
+    var nextNativeContent = nextEditorState.getNativelyRenderedContent();
+
+    var wasComposing = prevEditorState.isInCompositionMode();
+    var nowComposing = nextEditorState.isInCompositionMode();
+
+    // If the state is unchanged or we're currently rendering a natively
+    // rendered state, there's nothing new to be done.
+    if (prevEditorState === nextEditorState || nextNativeContent !== null && nextEditorState.getCurrentContent() === nextNativeContent || wasComposing && nowComposing) {
+      return false;
+    }
+
+    var prevContent = prevEditorState.getCurrentContent();
+    var nextContent = nextEditorState.getCurrentContent();
+    var prevDecorator = prevEditorState.getDecorator();
+    var nextDecorator = nextEditorState.getDecorator();
+    return wasComposing !== nowComposing || prevContent !== nextContent || prevDecorator !== nextDecorator || nextEditorState.mustForceSelection();
+  };
+
+  DraftEditorContents.prototype.render = function render() {
+    var _props = this.props,
+        blockRenderMap = _props.blockRenderMap,
+        blockRendererFn = _props.blockRendererFn,
+        blockStyleFn = _props.blockStyleFn,
+        customStyleMap = _props.customStyleMap,
+        customStyleFn = _props.customStyleFn,
+        editorState = _props.editorState,
+        editorKey = _props.editorKey,
+        textDirectionality = _props.textDirectionality;
+
+
+    var content = editorState.getCurrentContent();
+    var selection = editorState.getSelection();
+    var forceSelection = editorState.mustForceSelection();
+    var decorator = editorState.getDecorator();
+    var directionMap = nullthrows(editorState.getDirectionMap());
+
+    var blocksAsArray = content.getBlocksAsArray();
+    var processedBlocks = [];
+
+    var currentDepth = null;
+    var lastWrapperTemplate = null;
+
+    for (var ii = 0; ii < blocksAsArray.length; ii++) {
+      var _block = blocksAsArray[ii];
+      var key = _block.getKey();
+      var blockType = _block.getType();
+
+      var customRenderer = blockRendererFn(_block);
+      var CustomComponent = void 0,
+          customProps = void 0,
+          customEditable = void 0;
+      if (customRenderer) {
+        CustomComponent = customRenderer.component;
+        customProps = customRenderer.props;
+        customEditable = customRenderer.editable;
+      }
+
+      var direction = textDirectionality ? textDirectionality : directionMap.get(key);
+      var offsetKey = DraftOffsetKey.encode(key, 0, 0);
+      var componentProps = {
+        contentState: content,
+        block: _block,
+        blockProps: customProps,
+        blockStyleFn: blockStyleFn,
+        customStyleMap: customStyleMap,
+        customStyleFn: customStyleFn,
+        decorator: decorator,
+        direction: direction,
+        forceSelection: forceSelection,
+        key: key,
+        offsetKey: offsetKey,
+        selection: selection,
+        tree: editorState.getBlockTree(key)
+      };
+
+      var configForType = blockRenderMap.get(blockType) || blockRenderMap.get('unstyled');
+      var wrapperTemplate = configForType.wrapper;
+
+      var Element = configForType.element || blockRenderMap.get('unstyled').element;
+
+      var depth = _block.getDepth();
+      var className = '';
+      if (blockStyleFn) {
+        className = blockStyleFn(_block);
+      }
+
+      // List items are special snowflakes, since we handle nesting and
+      // counters manually.
+      if (Element === 'li') {
+        var shouldResetCount = lastWrapperTemplate !== wrapperTemplate || currentDepth === null || depth > currentDepth;
+        className = joinClasses(className, getListItemClasses(blockType, depth, shouldResetCount, direction));
+      }
+
+      var Component = CustomComponent || DraftEditorBlock;
+      var childProps = {
+        className: className,
+        'data-block': true,
+        'data-editor': editorKey,
+        'data-offset-key': offsetKey,
+        key: key
+      };
+      if (customEditable !== undefined) {
+        childProps = _extends({}, childProps, {
+          contentEditable: customEditable,
+          suppressContentEditableWarning: true
+        });
+      }
+
+      var child = React.createElement(Element, childProps, React.createElement(Component, componentProps));
+
+      processedBlocks.push({
+        block: child,
+        wrapperTemplate: wrapperTemplate,
+        key: key,
+        offsetKey: offsetKey
+      });
+
+      if (wrapperTemplate) {
+        currentDepth = _block.getDepth();
+      } else {
+        currentDepth = null;
+      }
+      lastWrapperTemplate = wrapperTemplate;
+    }
+
+    // Group contiguous runs of blocks that have the same wrapperTemplate
+    var outputBlocks = [];
+    for (var _ii = 0; _ii < processedBlocks.length;) {
+      var info = processedBlocks[_ii];
+      if (info.wrapperTemplate) {
+        var blocks = [];
+        do {
+          blocks.push(processedBlocks[_ii].block);
+          _ii++;
+        } while (_ii < processedBlocks.length && processedBlocks[_ii].wrapperTemplate === info.wrapperTemplate);
+        var wrapperElement = React.cloneElement(info.wrapperTemplate, {
+          key: info.key + '-wrap',
+          'data-offset-key': info.offsetKey
+        }, blocks);
+        outputBlocks.push(wrapperElement);
+      } else {
+        outputBlocks.push(info.block);
+        _ii++;
+      }
+    }
+
+    return React.createElement(
+      'div',
+      { 'data-contents': 'true' },
+      outputBlocks
+    );
+  };
+
+  return DraftEditorContents;
+}(React.Component);
+
+module.exports = DraftEditorContents;
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks static-only
+ */
+
+
+
+/**
+ * Combines multiple className strings into one.
+ * http://jsperf.com/joinclasses-args-vs-array
+ *
+ * @param {...?string} className
+ * @return {string}
+ */
+
+function joinClasses(className /*, ... */) {
+  if (!className) {
+    className = '';
+  }
+  var nextClass = void 0;
+  var argLength = arguments.length;
+  if (argLength > 1) {
+    for (var ii = 1; ii < argLength; ii++) {
+      nextClass = arguments[ii];
+      if (nextClass) {
+        className = (className ? className + ' ' : '') + nextClass;
+      }
+    }
+  }
+  return className;
+}
+
+module.exports = joinClasses;
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @format
+ * 
+ */
+
+
+
+var DataTransfer = __webpack_require__(55);
+var DraftModifier = __webpack_require__(5);
+var EditorState = __webpack_require__(2);
+
+var findAncestorOffsetKey = __webpack_require__(37);
+var getTextContentFromFiles = __webpack_require__(57);
+var getUpdatedSelectionState = __webpack_require__(58);
+var isEventHandled = __webpack_require__(22);
+var nullthrows = __webpack_require__(8);
+
+/**
+ * Get a SelectionState for the supplied mouse event.
+ */
+function getSelectionForEvent(event, editorState) {
+  var node = null;
+  var offset = null;
+
+  /* $FlowFixMe(>=0.68.0 site=www,mobile) This comment suppresses an error
+   * found when Flow v0.68 was deployed. To see the error delete this comment
+   * and run Flow. */
+  if (typeof document.caretRangeFromPoint === 'function') {
+    var dropRange = document.caretRangeFromPoint(event.x, event.y);
+    node = dropRange.startContainer;
+    offset = dropRange.startOffset;
+  } else if (event.rangeParent) {
+    node = event.rangeParent;
+    offset = event.rangeOffset;
+  } else {
+    return null;
+  }
+
+  node = nullthrows(node);
+  offset = nullthrows(offset);
+  var offsetKey = nullthrows(findAncestorOffsetKey(node));
+
+  return getUpdatedSelectionState(editorState, offsetKey, offset, offsetKey, offset);
+}
+
+var DraftEditorDragHandler = {
+  /**
+   * Drag originating from input terminated.
+   */
+  onDragEnd: function onDragEnd(editor) {
+    editor.exitCurrentMode();
+  },
+
+  /**
+   * Handle data being dropped.
+   */
+  onDrop: function onDrop(editor, e) {
+    var data = new DataTransfer(e.nativeEvent.dataTransfer);
+
+    var editorState = editor._latestEditorState;
+    var dropSelection = getSelectionForEvent(e.nativeEvent, editorState);
+
+    e.preventDefault();
+    editor.exitCurrentMode();
+
+    if (dropSelection == null) {
+      return;
+    }
+
+    var files = data.getFiles();
+    if (files.length > 0) {
+      if (editor.props.handleDroppedFiles && isEventHandled(editor.props.handleDroppedFiles(dropSelection, files))) {
+        return;
+      }
+
+      getTextContentFromFiles(files, function (fileText) {
+        fileText && editor.update(insertTextAtSelection(editorState, dropSelection, fileText));
+      });
+      return;
+    }
+
+    var dragType = editor._internalDrag ? 'internal' : 'external';
+    if (editor.props.handleDrop && isEventHandled(editor.props.handleDrop(dropSelection, data, dragType))) {
+      return;
+    }
+
+    if (editor._internalDrag) {
+      editor.update(moveText(editorState, dropSelection));
+      return;
+    }
+
+    editor.update(insertTextAtSelection(editorState, dropSelection, data.getText()));
+  }
+};
+
+function moveText(editorState, targetSelection) {
+  var newContentState = DraftModifier.moveText(editorState.getCurrentContent(), editorState.getSelection(), targetSelection);
+  return EditorState.push(editorState, newContentState, 'insert-fragment');
+}
+
+/**
+ * Insert text at a specified selection.
+ */
+function insertTextAtSelection(editorState, selection, text) {
+  var newContentState = DraftModifier.insertText(editorState.getCurrentContent(), selection, text, editorState.getCurrentInlineStyle());
+  return EditorState.push(editorState, newContentState, 'insert-fragment');
+}
+
+module.exports = DraftEditorDragHandler;
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+var PhotosMimeType = {
+  isImage: function isImage(mimeString) {
+    return getParts(mimeString)[0] === 'image';
+  },
+  isJpeg: function isJpeg(mimeString) {
+    var parts = getParts(mimeString);
+    return PhotosMimeType.isImage(mimeString) && (
+    // see http://fburl.com/10972194
+    parts[1] === 'jpeg' || parts[1] === 'pjpeg');
+  }
+};
+
+function getParts(mimeString) {
+  return mimeString.split('/');
+}
+
+module.exports = PhotosMimeType;
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * @typechecks
+ */
+
+var invariant = __webpack_require__(1);
+
+/**
+ * Convert array-like objects to arrays.
+ *
+ * This API assumes the caller knows the contents of the data type. For less
+ * well defined inputs use createArrayFromMixed.
+ *
+ * @param {object|function|filelist} obj
+ * @return {array}
+ */
+function toArray(obj) {
+  var length = obj.length;
+
+  // Some browsers builtin objects can report typeof 'function' (e.g. NodeList
+  // in old versions of Safari).
+  !(!Array.isArray(obj) && (typeof obj === 'object' || typeof obj === 'function')) ?  true ? invariant(false, 'toArray: Array-like object expected') : invariant(false) : void 0;
+
+  !(typeof length === 'number') ?  true ? invariant(false, 'toArray: Object needs a length property') : invariant(false) : void 0;
+
+  !(length === 0 || length - 1 in obj) ?  true ? invariant(false, 'toArray: Object should have keys for indices') : invariant(false) : void 0;
+
+  !(typeof obj.callee !== 'function') ?  true ? invariant(false, 'toArray: Object can\'t be `arguments`. Use rest params ' + '(function(...args) {}) or Array.from() instead.') : invariant(false) : void 0;
+
+  // Old IE doesn't give collections access to hasOwnProperty. Assume inputs
+  // without method will throw during the slice call and skip straight to the
+  // fallback.
+  if (obj.hasOwnProperty) {
+    try {
+      return Array.prototype.slice.call(obj);
+    } catch (e) {
+      // IE < 9 does not support Array#slice on collections objects
+    }
+  }
+
+  // Fall back to copying key by key. This assumes all keys have a value,
+  // so will not preserve sparsely populated inputs.
+  var ret = Array(length);
+  for (var ii = 0; ii < length; ii++) {
+    ret[ii] = obj[ii];
+  }
+  return ret;
+}
+
+/**
+ * Perform a heuristic test to determine if an object is "array-like".
+ *
+ *   A monk asked Joshu, a Zen master, "Has a dog Buddha nature?"
+ *   Joshu replied: "Mu."
+ *
+ * This function determines if its argument has "array nature": it returns
+ * true if the argument is an actual array, an `arguments' object, or an
+ * HTMLCollection (e.g. node.childNodes or node.getElementsByTagName()).
+ *
+ * It will return false for other array-like objects like Filelist.
+ *
+ * @param {*} obj
+ * @return {boolean}
+ */
+function hasArrayNature(obj) {
+  return (
+    // not null/false
+    !!obj && (
+    // arrays are objects, NodeLists are functions in Safari
+    typeof obj == 'object' || typeof obj == 'function') &&
+    // quacks like an array
+    'length' in obj &&
+    // not window
+    !('setInterval' in obj) &&
+    // no DOM node should be considered an array-like
+    // a 'select' element has 'length' and 'item' properties on IE8
+    typeof obj.nodeType != 'number' && (
+    // a real array
+    Array.isArray(obj) ||
+    // arguments
+    'callee' in obj ||
+    // HTMLCollection/NodeList
+    'item' in obj)
+  );
+}
+
+/**
+ * Ensure that the argument is an array by wrapping it in an array if it is not.
+ * Creates a copy of the argument if it is already an array.
+ *
+ * This is mostly useful idiomatically:
+ *
+ *   var createArrayFromMixed = require('createArrayFromMixed');
+ *
+ *   function takesOneOrMoreThings(things) {
+ *     things = createArrayFromMixed(things);
+ *     ...
+ *   }
+ *
+ * This allows you to treat `things' as an array, but accept scalars in the API.
+ *
+ * If you need to convert an array-like object, like `arguments`, into an array
+ * use toArray instead.
+ *
+ * @param {*} obj
+ * @return {array}
+ */
+function createArrayFromMixed(obj) {
+  if (!hasArrayNature(obj)) {
+    return [obj];
+  } else if (Array.isArray(obj)) {
+    return obj.slice();
+  } else {
+    return toArray(obj);
+  }
+}
+
+module.exports = createArrayFromMixed;
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @format
+ *  strict-local
+ */
+
+
+
+var onBeforeInput = __webpack_require__(118);
+var onBlur = __webpack_require__(122);
+var onCompositionStart = __webpack_require__(123);
+var onCopy = __webpack_require__(124);
+var onCut = __webpack_require__(125);
+var onDragOver = __webpack_require__(126);
+var onDragStart = __webpack_require__(127);
+var onFocus = __webpack_require__(128);
+var onInput = __webpack_require__(129);
+var onKeyDown = __webpack_require__(130);
+var onPaste = __webpack_require__(144);
+var onSelect = __webpack_require__(148);
+
+var DraftEditorEditHandler = {
+  onBeforeInput: onBeforeInput,
+  onBlur: onBlur,
+  onCompositionStart: onCompositionStart,
+  onCopy: onCopy,
+  onCut: onCut,
+  onDragOver: onDragOver,
+  onDragStart: onDragStart,
+  onFocus: onFocus,
+  onInput: onInput,
+  onKeyDown: onKeyDown,
+  onPaste: onPaste,
+  onSelect: onSelect
+};
+
+module.exports = DraftEditorEditHandler;
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * @format
+ *  strict-local
+ */
+
+
+
+var DraftModifier = __webpack_require__(5);
+var EditorState = __webpack_require__(2);
+var UserAgent = __webpack_require__(11);
+
+var getEntityKeyForSelection = __webpack_require__(34);
+var isEventHandled = __webpack_require__(22);
+var isSelectionAtLeafStart = __webpack_require__(47);
+var nullthrows = __webpack_require__(8);
+var setImmediate = __webpack_require__(119);
+
+// When nothing is focused, Firefox regards two characters, `'` and `/`, as
+// commands that should open and focus the "quickfind" search bar. This should
+// *never* happen while a contenteditable is focused, but as of v28, it
+// sometimes does, even when the keypress event target is the contenteditable.
+// This breaks the input. Special case these characters to ensure that when
+// they are typed, we prevent default on the event to make sure not to
+// trigger quickfind.
+var FF_QUICKFIND_CHAR = "'";
+var FF_QUICKFIND_LINK_CHAR = '/';
+var isFirefox = UserAgent.isBrowser('Firefox');
+
+function mustPreventDefaultForCharacter(character) {
+  return isFirefox && (character == FF_QUICKFIND_CHAR || character == FF_QUICKFIND_LINK_CHAR);
+}
+
+/**
+ * Replace the current selection with the specified text string, with the
+ * inline style and entity key applied to the newly inserted text.
+ */
+function replaceText(editorState, text, inlineStyle, entityKey, forceSelection) {
+  var contentState = DraftModifier.replaceText(editorState.getCurrentContent(), editorState.getSelection(), text, inlineStyle, entityKey);
+  return EditorState.push(editorState, contentState, 'insert-characters', forceSelection);
+}
+
+/**
+ * When `onBeforeInput` executes, the browser is attempting to insert a
+ * character into the editor. Apply this character data to the document,
+ * allowing native insertion if possible.
+ *
+ * Native insertion is encouraged in order to limit re-rendering and to
+ * preserve spellcheck highlighting, which disappears or flashes if re-render
+ * occurs on the relevant text nodes.
+ */
+function editOnBeforeInput(editor, e) {
+  if (editor._pendingStateFromBeforeInput !== undefined) {
+    editor.update(editor._pendingStateFromBeforeInput);
+    editor._pendingStateFromBeforeInput = undefined;
+  }
+
+  var editorState = editor._latestEditorState;
+
+  var chars = e.data;
+
+  // In some cases (ex: IE ideographic space insertion) no character data
+  // is provided. There's nothing to do when this happens.
+  if (!chars) {
+    return;
+  }
+
+  // Allow the top-level component to handle the insertion manually. This is
+  // useful when triggering interesting behaviors for a character insertion,
+  // Simple examples: replacing a raw text ':)' with a smile emoji or image
+  // decorator, or setting a block to be a list item after typing '- ' at the
+  // start of the block.
+  if (editor.props.handleBeforeInput && isEventHandled(editor.props.handleBeforeInput(chars, editorState, e.timeStamp))) {
+    e.preventDefault();
+    return;
+  }
+
+  // If selection is collapsed, conditionally allow native behavior. This
+  // reduces re-renders and preserves spellcheck highlighting. If the selection
+  // is not collapsed, we will re-render.
+  var selection = editorState.getSelection();
+  var selectionStart = selection.getStartOffset();
+  var anchorKey = selection.getAnchorKey();
+
+  if (!selection.isCollapsed()) {
+    e.preventDefault();
+    editor.update(replaceText(editorState, chars, editorState.getCurrentInlineStyle(), getEntityKeyForSelection(editorState.getCurrentContent(), editorState.getSelection()), true));
+    return;
+  }
+
+  var newEditorState = replaceText(editorState, chars, editorState.getCurrentInlineStyle(), getEntityKeyForSelection(editorState.getCurrentContent(), editorState.getSelection()), false);
+
+  // Bunch of different cases follow where we need to prevent native insertion.
+  var mustPreventNative = false;
+  if (!mustPreventNative) {
+    // Browsers tend to insert text in weird places in the DOM when typing at
+    // the start of a leaf, so we'll handle it ourselves.
+    mustPreventNative = isSelectionAtLeafStart(editor._latestCommittedEditorState);
+  }
+  if (!mustPreventNative) {
+    // Chrome will also split up a node into two pieces if it contains a Tab
+    // char, for no explicable reason. Seemingly caused by this commit:
+    // https://chromium.googlesource.com/chromium/src/+/013ac5eaf3%5E%21/
+    var nativeSelection = global.getSelection();
+    // Selection is necessarily collapsed at this point due to earlier check.
+    if (nativeSelection.anchorNode && nativeSelection.anchorNode.nodeType === Node.TEXT_NODE) {
+      // See isTabHTMLSpanElement in chromium EditingUtilities.cpp.
+      var parentNode = nativeSelection.anchorNode.parentNode;
+      mustPreventNative = parentNode.nodeName === 'SPAN' && parentNode.firstChild.nodeType === Node.TEXT_NODE && parentNode.firstChild.nodeValue.indexOf('\t') !== -1;
+    }
+  }
+  if (!mustPreventNative) {
+    // Let's say we have a decorator that highlights hashtags. In many cases
+    // we need to prevent native behavior and rerender ourselves --
+    // particularly, any case *except* where the inserted characters end up
+    // anywhere except exactly where you put them.
+    //
+    // Using [] to denote a decorated leaf, some examples:
+    //
+    // 1. 'hi #' and append 'f'
+    // desired rendering: 'hi [#f]'
+    // native rendering would be: 'hi #f' (incorrect)
+    //
+    // 2. 'x [#foo]' and insert '#' before 'f'
+    // desired rendering: 'x #[#foo]'
+    // native rendering would be: 'x [##foo]' (incorrect)
+    //
+    // 3. '[#foobar]' and insert ' ' between 'foo' and 'bar'
+    // desired rendering: '[#foo] bar'
+    // native rendering would be: '[#foo bar]' (incorrect)
+    //
+    // 4. '[#foo]' and delete '#' [won't use this beforeinput codepath though]
+    // desired rendering: 'foo'
+    // native rendering would be: '[foo]' (incorrect)
+    //
+    // 5. '[#foo]' and append 'b'
+    // desired rendering: '[#foob]'
+    // native rendering would be: '[#foob]' (native insertion is OK here)
+    //
+    // It is safe to allow native insertion if and only if the full list of
+    // decorator ranges matches what we expect native insertion to give. We
+    // don't need to compare the content because the only possible mutation
+    // to consider here is inserting plain text and decorators can't affect
+    // text content.
+    var oldBlockTree = editorState.getBlockTree(anchorKey);
+    var newBlockTree = newEditorState.getBlockTree(anchorKey);
+    mustPreventNative = oldBlockTree.size !== newBlockTree.size || oldBlockTree.zip(newBlockTree).some(function (_ref) {
+      var oldLeafSet = _ref[0],
+          newLeafSet = _ref[1];
+
+      // selectionStart is guaranteed to be selectionEnd here
+      var oldStart = oldLeafSet.get('start');
+      var adjustedStart = oldStart + (oldStart >= selectionStart ? chars.length : 0);
+      var oldEnd = oldLeafSet.get('end');
+      var adjustedEnd = oldEnd + (oldEnd >= selectionStart ? chars.length : 0);
+      return (
+        // Different decorators
+        oldLeafSet.get('decoratorKey') !== newLeafSet.get('decoratorKey') ||
+        // Different number of inline styles
+        oldLeafSet.get('leaves').size !== newLeafSet.get('leaves').size ||
+        // Different effective decorator position
+        adjustedStart !== newLeafSet.get('start') || adjustedEnd !== newLeafSet.get('end')
+      );
+    });
+  }
+  if (!mustPreventNative) {
+    mustPreventNative = mustPreventDefaultForCharacter(chars);
+  }
+  if (!mustPreventNative) {
+    mustPreventNative = nullthrows(newEditorState.getDirectionMap()).get(anchorKey) !== nullthrows(editorState.getDirectionMap()).get(anchorKey);
+  }
+
+  if (mustPreventNative) {
+    e.preventDefault();
+    newEditorState = EditorState.set(newEditorState, {
+      forceSelection: true
+    });
+    editor.update(newEditorState);
+    return;
+  }
+
+  // We made it all the way! Let the browser do its thing and insert the char.
+  newEditorState = EditorState.set(newEditorState, {
+    nativelyRenderedContent: newEditorState.getCurrentContent()
+  });
+  // The native event is allowed to occur. To allow user onChange handlers to
+  // change the inserted text, we wait until the text is actually inserted
+  // before we actually update our state. That way when we rerender, the text
+  // we see in the DOM will already have been inserted properly.
+  editor._pendingStateFromBeforeInput = newEditorState;
+  setImmediate(function () {
+    if (editor._pendingStateFromBeforeInput !== undefined) {
+      editor.update(editor._pendingStateFromBeforeInput);
+      editor._pendingStateFromBeforeInput = undefined;
+    }
+  });
+}
+
+module.exports = editOnBeforeInput;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+
+/***/ }),
 /* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14472,7 +14480,7 @@ module.exports = memoizeStringOnly;
 
 __webpack_require__(120);
 module.exports = global.setImmediate;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 120 */
@@ -14665,7 +14673,7 @@ module.exports = global.setImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(121)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(121)))
 
 /***/ }),
 /* 121 */
@@ -14910,7 +14918,7 @@ function editOnBlur(editor, e) {
 }
 
 module.exports = editOnBlur;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 123 */
@@ -15140,7 +15148,7 @@ module.exports = editOnDragStart;
 
 
 var EditorState = __webpack_require__(2);
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 function editOnFocus(editor, e) {
   var editorState = editor._latestEditorState;
@@ -15193,7 +15201,7 @@ module.exports = editOnFocus;
 var DraftModifier = __webpack_require__(5);
 var DraftOffsetKey = __webpack_require__(15);
 var EditorState = __webpack_require__(2);
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var findAncestorOffsetKey = __webpack_require__(37);
 var gkx = __webpack_require__(7);
@@ -15350,7 +15358,7 @@ function editOnInput(editor) {
 }
 
 module.exports = editOnInput;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 130 */
@@ -15376,7 +15384,7 @@ var EditorState = __webpack_require__(2);
 var KeyBindingUtil = __webpack_require__(38);
 var Keys = __webpack_require__(33);
 var SecondaryClipboard = __webpack_require__(131);
-var UserAgent = __webpack_require__(12);
+var UserAgent = __webpack_require__(11);
 
 var isEventHandled = __webpack_require__(22);
 var keyCommandBackspaceToStartOfLine = __webpack_require__(132);
@@ -15654,7 +15662,7 @@ function keyCommandBackspaceToStartOfLine(editorState) {
 }
 
 module.exports = keyCommandBackspaceToStartOfLine;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 133 */
@@ -16776,7 +16784,7 @@ function getDraftEditorSelection(editorState, root) {
 }
 
 module.exports = getDraftEditorSelection;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
 
 /***/ }),
 /* 150 */
